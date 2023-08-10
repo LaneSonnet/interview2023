@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm;
+package com.lane.interview.algorithm.primary;
 
 public class PrintBinary {
 
