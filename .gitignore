@@ -27,6 +27,7 @@ logs
 build
 target
 .idea
+.idea/
 .idea_modules
 .classpath
 .settings
