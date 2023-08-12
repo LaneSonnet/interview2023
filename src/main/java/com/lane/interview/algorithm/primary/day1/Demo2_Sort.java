@@ -12,6 +12,10 @@ public class Demo2_Sort {
     }
 
     public static void swap1(int[] arr, int i, int j) {
+        // 不能使用异或运算，因为i和j可能是同一个位置,会等价于自己和自己异或
+        if (i == j) {
+            return;
+        }
         arr[i] = arr[i] ^ arr[j];
         arr[j] = arr[i] ^ arr[j];
         arr[i] = arr[i] ^ arr[j];
