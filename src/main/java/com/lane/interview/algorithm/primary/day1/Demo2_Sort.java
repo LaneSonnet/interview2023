@@ -4,14 +4,14 @@ package com.lane.interview.algorithm.primary.day1;
  * @ Author:  duenpu
  * @ Date  :  23:04 2023/8/9
  */
-public class Sort {
-    private static void swap(int[] arr, int i, int j) {
+public class Demo2_Sort {
+    public static void swap(int[] arr, int i, int j) {
         int tmp = arr[j];
         arr[j] = arr[i];
         arr[i] = tmp;
     }
 
-    private static void swap1(int[] arr, int i, int j) {
+    public static void swap1(int[] arr, int i, int j) {
         arr[i] = arr[i] ^ arr[j];
         arr[j] = arr[i] ^ arr[j];
         arr[i] = arr[i] ^ arr[j];
@@ -21,7 +21,7 @@ public class Sort {
         选择排序
         时间复杂度O(n²)
     */
-    private static void selectSort(int[] arr) {
+    public static void selectSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
@@ -39,7 +39,7 @@ public class Sort {
         冒泡排序
         时间复杂度O(n²)
     */
-    private static void bubbleSort(int[] arr) {
+    public static void bubbleSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }
@@ -57,7 +57,7 @@ public class Sort {
         插入排序
         时间复杂度O(n²)
     */
-    private static void insertSort(int[] arr) {
+    public static void insertSort(int[] arr) {
         if (arr == null || arr.length < 2) {
             return;
         }

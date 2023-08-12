@@ -1,6 +1,6 @@
 package com.lane.interview.algorithm.primary.day1;
 
-public class PrintBinary {
+public class Demo1_PrintBinary {
 
         public static void print(int num) {
             for (int i = 31; i >= 0; i--) {
