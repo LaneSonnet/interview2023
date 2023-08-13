@@ -1,5 +1,9 @@
 package com.lane.interview.algorithm.primary.day1;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * 异或运算
  *
@@ -21,7 +25,7 @@ public class Demo5_Eor {
 
     /**
      * 位运算骚操作
-     *
+     * <p>
      * n << 1 → n * 2
      * n >> 1 → n / 2
      * n << 1 ^ 1 → n * 2 + 1
@@ -86,8 +90,105 @@ public class Demo5_Eor {
         System.out.println(onlyOne + " " + (eor ^ onlyOne));
     }
 
+    // 数组中只有一种数出现了K次，其他数都出现了M次，M>1,K<M，找到出现了K次的数，额外空间复杂度O(1)，时间复杂度O(N)
+    public static int onlyKTimes(int[] arr, int k, int m) {
+        if (arr == null || arr.length == 0) {
+            return -1;
+        }
+        int[] t = new int[32];
+        for (int i = 0; i < t.length; i++) {
+            // 按位提取,赋值给t数组
+            t[i] += (arr[i] >> i) & 1;
+        }
+        int ans = 0;
+        for (int i = 0; i < t.length; i++) {
+            if (t[i] % m != 0) {
+                ans |= (1 << i);
+            }
+        }
+        return ans;
+    }
+
+    public static int[] randomArray(int kinds, int range, int k, int m) {
+        int ktimeNum = randomNumber(range);
+        int numKinds = (int) (Math.random() * kinds) + 2;
+        int[] arr = new int[k + (numKinds - 1) * m];
+        int index = 0;
+        for (; index < k; index++) {
+            arr[index] = ktimeNum;
+        }
+        numKinds--;
+        HashSet<Integer> set = new HashSet<>();
+        set.add(ktimeNum);
+        while (numKinds != 0) {
+            int curNum = 0;
+            do {
+                curNum = randomNumber(range);
+            } while (set.contains(curNum));
+            set.add(curNum);
+            numKinds--;
+            for (int i = 0; i < m; i++) {
+                arr[index++] = curNum;
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            int swapIndex = (int) (Math.random() * arr.length);
+            int tmp = arr[swapIndex];
+            arr[swapIndex] = arr[i];
+            arr[i] = tmp;
+        }
+        return arr;
+    }
+
+    public static int randomNumber(int range) {
+        return (int) (Math.random() * range) + 1;
+    }
+
+    public static int test(int[] arr, int k, int m) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < arr.length; i++) {
+            int cur = arr[i];
+            if (!map.containsKey(cur)) {
+                map.put(cur, 1);
+            } else {
+                map.put(cur, map.get(cur) + 1);
+            }
+        }
+        for (Integer curNum : map.keySet()) {
+            if (map.get(curNum) == k) {
+                return curNum;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        // 检测onlyKTimes是否正确
+        int testTimes = 100000;
+        int max = 9;
+        int kinds = 10;
+        int range = 200;
+        for (int i = 0; i < testTimes; i++) {
+            int a = (int) (Math.random() * max) + 1; // 1-9
+            int b = (int) (Math.random() * max) + 1; // 1-9
+            int k = Math.min(a, b);
+            int m = Math.max(a, b);
+            if (k == m) {
+                m++;
+            }
+            int[] arr = randomArray(kinds, range, k, m);
+            int ans1 = test(arr, k, m);
+            int ans2 = onlyKTimes(arr, k, m);
+            if (ans1 != ans2) {
+                System.out.println("Oops!");
+            }
+        }
+    }
+
+
     // 打印一个int的二进制中1的个数
     public static void printOneNum(int num) {
+        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         int count = 0;
         while (num != 0) {
             int rightOne = num & (~num + 1);
