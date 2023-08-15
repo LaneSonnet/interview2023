@@ -18,7 +18,8 @@ public class Demo4_Dichotomy {
         int right = sortedArr.length - 1;
         int mid = 0;
         while (left < right) {
-            mid = left + ((right - left) >> 1);
+//            mid = left + ((right - left) >> 1);
+            mid = right - ((right - left) >> 1);
             if (sortedArr[mid] == num) {
                 return Boolean.TRUE;
             } else if (sortedArr[mid] > num ) {
@@ -27,10 +28,11 @@ public class Demo4_Dichotomy {
                 left = mid + 1;
             }
         }
-        return sortedArr[left] == num;
+        return sortedArr[right] == num;
     }
 
     //有序数组中满足>=value的最左位置
+    //1112244445566777
     public static int nearestIndexLeft(int[] sortedArr, int value) {
         if (sortedArr == null || sortedArr.length == 0) {
             return -1;
