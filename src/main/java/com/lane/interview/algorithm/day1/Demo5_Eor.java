@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.primary.day1;
+package com.lane.interview.algorithm.day1;
 
 import java.util.HashMap;
 import java.util.HashSet;

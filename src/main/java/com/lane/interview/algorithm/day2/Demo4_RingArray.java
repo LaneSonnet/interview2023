@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.primary.day2;
+package com.lane.interview.algorithm.day2;
 
 public class Demo4_RingArray {
 

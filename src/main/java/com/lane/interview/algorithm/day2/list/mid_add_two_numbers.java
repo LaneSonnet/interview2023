@@ -1,11 +1,11 @@
-package com.lane.interview.algorithm.primary.day2.list;
+package com.lane.interview.algorithm.day2.list;
 
 /**
  * @author duenpu
  * @date 2023/8/17 17:39
  */
 
-import com.lane.interview.algorithm.primary.day2.Node;
+import com.lane.interview.algorithm.day2.Node;
 
 /**
  * https://leetcode.cn/problems/add-two-numbers
