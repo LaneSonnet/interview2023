@@ -44,6 +44,7 @@ public class Demo2_Heap {
 
 		// 新加进来的数，现在停在了index位置，请依次往上移动，
 		// 移动到0位置，或者干不掉自己的父亲了，停！
+		// 复杂度 logN
 		private void heapInsert(int[] arr, int index) {
 			// [index] [index-1]/2
 			// index == 0
@@ -55,6 +56,7 @@ public class Demo2_Heap {
 
 		// 从index位置，往下看，不断的下沉
 		// 停：较大的孩子都不再比index位置的数大；已经没孩子了
+		// 复杂度 logN
 		private void heapify(int[] arr, int index, int heapSize) {
 			int left = index * 2 + 1;
 			while (left < heapSize) { // 如果有左孩子，有没有右孩子，可能有可能没有！

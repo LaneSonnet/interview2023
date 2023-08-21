@@ -14,10 +14,28 @@ public class Demo3_HeapSort {
 //		for (int i = 0; i < arr.length; i++) { // O(N)
 //			heapInsert(arr, i); // O(logN)
 //		}
-		// O(N)
+		// O(N)——建堆 从最底层的叶子节点开始，往上建堆
 		for (int i = arr.length - 1; i >= 0; i--) {
 			heapify(arr, i, arr.length);
 		}
+		int heapSize = arr.length;
+		swap(arr, 0, --heapSize);
+		// O(N*logN)
+		while (heapSize > 0) { // O(N)
+			heapify(arr, 0, heapSize); // O(logN)
+			swap(arr, 0, --heapSize); // O(1)
+		}
+	}
+
+	public static void heapSort1(int[] arr) {
+		if (arr == null || arr.length < 2) {
+			return;
+		}
+		// O(N*logN)——建堆
+		for (int i = 0; i < arr.length; i++) { // O(N)
+			heapInsert(arr, i); // O(logN)
+		}
+		// O(N)
 		int heapSize = arr.length;
 		swap(arr, 0, --heapSize);
 		// O(N*logN)
