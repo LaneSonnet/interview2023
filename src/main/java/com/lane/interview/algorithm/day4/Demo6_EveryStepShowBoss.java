@@ -5,6 +5,16 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * 给定一个整形数组int[] arr，和一个布尔类型数组boolean[] op
+ * 两个数组一定等长，假设长度为N，arr[i]表示客户编号，op[i]表示客户操作
+ * arr = [ 3, 3, 1, 2, 1, 2, 3, 1, 2, 3 ]
+ * op  = [ T, T, F, T, T, T, T, T, T, T ]
+ * 代表第一个客户编号为3，操作为买货
+ * 第二个客户编号为3，操作为买货
+ * 第三个客户编号为1，操作为退货
+ * ...
+ */
 public class Demo6_EveryStepShowBoss {
 
 	public static class Customer {

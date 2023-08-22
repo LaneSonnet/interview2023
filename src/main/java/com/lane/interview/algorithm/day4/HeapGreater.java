@@ -5,6 +5,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * 手写加强堆
+ */
 public class HeapGreater<T> {
 
 	private ArrayList<T> heap;
