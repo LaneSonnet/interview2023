@@ -2,6 +2,9 @@ package com.lane.interview.algorithm.day7;
 
 import java.util.Stack;
 
+/**
+ * 二叉树的非递归遍历
+ */
 public class Demo2_UnRecursiveTraversalBT {
 
 	public static class Node {
@@ -14,6 +17,15 @@ public class Demo2_UnRecursiveTraversalBT {
 		}
 	}
 
+	/**
+	 * 先序遍历
+	 * ①头结点入栈
+	 * ----循环开始----
+	 * ②弹出栈顶元素，打印
+	 * ③如果栈顶元素有右孩子，将右孩子入栈
+	 * ④如果栈顶元素有左孩子，将左孩子入栈
+	 * ----循环结束----
+	 */
 	public static void pre(Node head) {
 		System.out.print("pre-order: ");
 		if (head != null) {
@@ -33,6 +45,13 @@ public class Demo2_UnRecursiveTraversalBT {
 		System.out.println();
 	}
 
+	/**
+	 * 中序遍历
+	 * ①先从头结点开始，将整棵树的左边界依次入栈
+	 * ②左边界走到底了，弹出栈顶元素，打印
+	 * ③如果栈顶元素有右孩子，将右孩子作为头结点，重复①
+	 * 本质：二叉树可以看成是一个左斜树，从左边界开始，每个节点先搞左子树，然后自己，然后右子树
+	 */
 	public static void in(Node cur) {
 		System.out.print("in-order: ");
 		if (cur != null) {
@@ -51,6 +70,17 @@ public class Demo2_UnRecursiveTraversalBT {
 		System.out.println();
 	}
 
+	/**
+	 * 后序遍历(两个栈实现)
+	 * 本质：先序遍历的变形，头 右 左 (逆序)-> 左 右 头
+	 * ①头结点入栈1
+	 * ----循环开始----
+	 * ②栈1顶元素弹出，入栈2
+	 * ③如果栈1顶元素有右孩子，将右孩子入栈1
+	 * ④如果栈1顶元素有左孩子，将左孩子入栈1
+	 * ----循环结束----
+	 * ⑤栈2元素依次弹出，打印
+	 */
 	public static void pos1(Node head) {
 		System.out.print("pos-order: ");
 		if (head != null) {
@@ -75,6 +105,10 @@ public class Demo2_UnRecursiveTraversalBT {
 		System.out.println();
 	}
 
+	/**
+	 * 一个栈实现后序遍历
+	 * 可以忽略，太难了
+	 */
 	public static void pos2(Node h) {
 		System.out.print("pos-order: ");
 		if (h != null) {
