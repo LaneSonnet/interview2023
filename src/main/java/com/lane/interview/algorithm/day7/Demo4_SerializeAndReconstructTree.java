@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * 二叉树的序列化和反序列化
+ */
 public class Demo4_SerializeAndReconstructTree {
     /*
      * 二叉树可以通过先序、后序或者按层遍历的方式序列化和反序列化，
@@ -31,6 +34,9 @@ public class Demo4_SerializeAndReconstructTree {
 		}
 	}
 
+	/**
+	 * 先序——序列化
+	 */
 	public static Queue<String> preSerial(Node head) {
 		Queue<String> ans = new LinkedList<>();
 		pres(head, ans);
@@ -47,6 +53,11 @@ public class Demo4_SerializeAndReconstructTree {
 		}
 	}
 
+	// ---------------------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * 中序——序列化(没用，有问题)
+	 */
 	public static Queue<String> inSerial(Node head) {
 		Queue<String> ans = new LinkedList<>();
 		ins(head, ans);
@@ -63,6 +74,11 @@ public class Demo4_SerializeAndReconstructTree {
 		}
 	}
 
+	// ---------------------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * 后序——序列化
+	 */
 	public static Queue<String> posSerial(Node head) {
 		Queue<String> ans = new LinkedList<>();
 		poss(head, ans);
@@ -79,6 +95,11 @@ public class Demo4_SerializeAndReconstructTree {
 		}
 	}
 
+	// ---------------------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * 先序——反序列化
+	 */
 	public static Node buildByPreQueue(Queue<String> prelist) {
 		if (prelist == null || prelist.size() == 0) {
 			return null;
@@ -97,6 +118,11 @@ public class Demo4_SerializeAndReconstructTree {
 		return head;
 	}
 
+	// ---------------------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * 后序——反序列化
+	 */
 	public static Node buildByPosQueue(Queue<String> poslist) {
 		if (poslist == null || poslist.size() == 0) {
 			return null;
@@ -120,16 +146,24 @@ public class Demo4_SerializeAndReconstructTree {
 		return head;
 	}
 
+	// ---------------------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * 层序——序列化
+	 */
 	public static Queue<String> levelSerial(Node head) {
 		Queue<String> ans = new LinkedList<>();
 		if (head == null) {
 			ans.add(null);
 		} else {
 			ans.add(String.valueOf(head.value));
+			// queue里面存的是父节点，是辅助结构，不是真正的序列化
+			// ans里面存的是真正的序列化
 			Queue<Node> queue = new LinkedList<Node>();
 			queue.add(head);
 			while (!queue.isEmpty()) {
 				head = queue.poll(); // head 父   子
+				// 先左后右
 				if (head.left != null) {
 					ans.add(String.valueOf(head.left.value));
 					queue.add(head.left);
@@ -147,6 +181,9 @@ public class Demo4_SerializeAndReconstructTree {
 		return ans;
 	}
 
+	/**
+	 * 层序——反序列化
+	 */
 	public static Node buildByLevelQueue(Queue<String> levelList) {
 		if (levelList == null || levelList.size() == 0) {
 			return null;
@@ -177,6 +214,8 @@ public class Demo4_SerializeAndReconstructTree {
 		}
 		return new Node(Integer.valueOf(val));
 	}
+
+	// ---------------------------------------------------------------------------------------------------------------------------------
 
 	// for test
 	public static Node generateRandomBST(int maxLevel, int maxValue) {

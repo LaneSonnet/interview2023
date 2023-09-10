@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 二叉树的最大宽度
+ */
 public class Demo7_TreeMaxWidth {
 
 	public static class Node {

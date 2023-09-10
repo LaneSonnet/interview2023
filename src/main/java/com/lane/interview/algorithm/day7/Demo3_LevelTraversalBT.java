@@ -3,6 +3,9 @@ package com.lane.interview.algorithm.day7;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 二叉树的层序遍历
+ */
 public class Demo3_LevelTraversalBT {
 
 	public static class Node {
@@ -15,6 +18,16 @@ public class Demo3_LevelTraversalBT {
 		}
 	}
 
+	/**
+	 * 层序遍历
+	 * 队列实现
+	 * ①头结点入队
+	 * ----循环开始----
+	 * ②弹出队头元素，打印
+	 * ③如果队头元素有左孩子，将左孩子入队
+	 * ④如果队头元素有右孩子，将右孩子入队
+	 * ----循环结束----
+	 */
 	public static void level(Node head) {
 		if (head == null) {
 			return;

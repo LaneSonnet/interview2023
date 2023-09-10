@@ -43,6 +43,7 @@ public class Demo5_EncodeNaryTreeToBinaryTree {
 				return null;
 			}
 			TreeNode head = new TreeNode(root.val);
+			// 每个节点的所有孩子，往自己左树的右边界上依次挂载
 			head.left = en(root.children);
 			return head;
 		}
