@@ -55,6 +55,19 @@ public class Demo1_IsCBT {
 		return true;
 	}
 
+	/**
+	 * 分情况讨论
+	 *
+	 * 对于节点X来讲
+	 * ①X的左子树和右子树都是满的，那么以X为头结点的整棵树就是完全二叉树(不仅是完全二叉树，还是满二叉树)
+	 *
+	 * ②X的左子树是完全二叉树(但是不满)，右子树是满二叉树，右子树的高度 + 1 = 左子树的高度(左树比右树高一层)
+	 *
+	 * ③X的左子树是满二叉树，右子树也是满二叉树，右子树的高度 + 1 = 左子树的高度(左树比右树高一层)
+	 *
+	 * ④X的左子树是满二叉树，右子树是完全二叉树(但是不满)，右子树的高度 = 左子树的高度(左树右树高度一致)
+	 *
+	 */
 	public static boolean isCBT2(Node head) {
 		if (head == null) {
 			return true;
@@ -62,6 +75,7 @@ public class Demo1_IsCBT {
 		return process(head).isCBT;
 	}
 
+	// 信息结构
 	// 对每一棵子树，是否是满二叉树、是否是完全二叉树、高度
 	public static class Info {
 		public boolean isFull;
@@ -76,47 +90,47 @@ public class Demo1_IsCBT {
 	}
 
 	public static Info process(Node X) {
+		// 边界条件
 		if (X == null) {
 			return new Info(true, true, 0);
 		}
+		// 我左子树的信息
 		Info leftInfo = process(X.left);
+		// 我右子树的信息
 		Info rightInfo = process(X.right);
-		
-		
-		
+		// 高度初始化
 		int height = Math.max(leftInfo.height, rightInfo.height) + 1;
-		
-		
+		// 是否满二叉树 初始化(左树满&右树满&左右树高度一致)
 		boolean isFull = leftInfo.isFull 
 				&& 
 				rightInfo.isFull 
 				&& leftInfo.height == rightInfo.height;
-		
-		
+		// 是否完全二叉树 初始化
 		boolean isCBT = false;
+		// 如果满二叉树，那肯定是完全二叉树
 		if (isFull) {
 			isCBT = true;
 		} else { // 以x为头整棵树，不满
+			// 我的左子树和右子树都得是完全二叉树(情况②③④)
 			if (leftInfo.isCBT && rightInfo.isCBT) {
-				
-				
+				// 情况②
 				if (leftInfo.isCBT 
 						&& rightInfo.isFull 
 						&& leftInfo.height == rightInfo.height + 1) {
 					isCBT = true;
 				}
+				// 情况③
 				if (leftInfo.isFull 
 						&& 
 						rightInfo.isFull 
 						&& leftInfo.height == rightInfo.height + 1) {
 					isCBT = true;
 				}
+				// 情况④
 				if (leftInfo.isFull 
 						&& rightInfo.isCBT && leftInfo.height == rightInfo.height) {
 					isCBT = true;
 				}
-				
-				
 			}
 		}
 		return new Info(isFull, isCBT, height);
