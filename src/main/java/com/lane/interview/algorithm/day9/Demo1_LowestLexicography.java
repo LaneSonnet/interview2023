@@ -14,7 +14,9 @@ import java.util.TreeSet;
  * 1.两个字符串长度相等时，按照从左到右依次比较字符的大小
  * 2.长度不等时，短的字符串补齐到和长的字符串一样的长度(用最小的asc码补齐)，然后按照从左到右依次比较字符的大小(举例说明，abcd<bcd，因为abcd<bcd0)
  *
- *
+ * 贪心思路：
+ *  两个字符串a，b
+ *  a拼接b 比 b拼接a 字典序小，那么a排在b前面
  */
 public class Demo1_LowestLexicography {
 
@@ -59,6 +61,7 @@ public class Demo1_LowestLexicography {
 		return ans;
 	}
 
+	// a拼接b，和b拼接a，哪个字典序小
 	public static class MyComparator implements Comparator<String> {
 		@Override
 		public int compare(String a, String b) {
