@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day3.merge;
+package com.lane.interview.algorithm_workbook.p03_merge;
 
 /**
  * @ Author:  duenpu

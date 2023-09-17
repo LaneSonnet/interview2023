@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day2.list;
+package com.lane.interview.algorithm_workbook.p02_list;
 
 import com.lane.interview.algorithm.day2.Node;
 
