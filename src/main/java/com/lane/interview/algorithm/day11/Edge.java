@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day11.图;
+package com.lane.interview.algorithm.day11;
 
 public class Edge {
 	public int weight;

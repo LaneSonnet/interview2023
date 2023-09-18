@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day11.图;
+package com.lane.interview.algorithm.day11;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -85,25 +85,32 @@ public class Demo06_Dijkstra {
 		// 有一个点叫node，现在发现了一个从源节点出发到达node的距离为distance
 		// 判断要不要更新，如果需要的话，就更新
 		public void addOrUpdateOrIgnore(Node node, int distance) {
+			// 如果node就在堆上，只是距离变了，更新距离
 			if (inHeap(node)) {
 				distanceMap.put(node, Math.min(distanceMap.get(node), distance));
 				insertHeapify(heapIndexMap.get(node));
 			}
+			// 如果node从来就没进过堆，直接加入堆
 			if (!isEntered(node)) {
 				nodes[size] = node;
 				heapIndexMap.put(node, size);
 				distanceMap.put(node, distance);
 				insertHeapify(size++);
 			}
+			// 如果node进过堆，直接忽视
 		}
 
 		public NodeRecord pop() {
 			NodeRecord nodeRecord = new NodeRecord(nodes[0], distanceMap.get(nodes[0]));
+			// 把堆上最后一个点，放到堆顶上，然后堆的大小减1
 			swap(0, size - 1);
+			// heapIndexMap中保留的是node在堆上的位置，即使node从堆上被删除了，位置信息也不会消失，只是value会变成-1
 			heapIndexMap.put(nodes[size - 1], -1);
+			// distanceMap中保留的是node到源节点的距离, 直接删除
 			distanceMap.remove(nodes[size - 1]);
-			// free C++同学还要把原本堆顶节点析构，对java同学不必
+			// 删除堆上的最后一个点
 			nodes[size - 1] = null;
+			// 堆的大小减1， 堆顶下沉操作
 			heapify(0, --size);
 			return nodeRecord;
 		}
@@ -131,6 +138,7 @@ public class Demo06_Dijkstra {
 			}
 		}
 
+		// heapIndexMap中保留的是node在堆上的位置，即使node从堆上被删除了，位置信息也不会消失，只是value会变成-1
 		private boolean isEntered(Node node) {
 			return heapIndexMap.containsKey(node);
 		}
@@ -152,6 +160,7 @@ public class Demo06_Dijkstra {
 	// 从head出发，所有head能到达的节点，生成到达每个节点的最小路径记录并返回
 	public static HashMap<Node, Integer> dijkstra2(Node head, int size) {
 		NodeHeap nodeHeap = new NodeHeap(size);
+		// 难点就是这个方法
 		nodeHeap.addOrUpdateOrIgnore(head, 0);
 		HashMap<Node, Integer> result = new HashMap<>();
 		while (!nodeHeap.isEmpty()) {

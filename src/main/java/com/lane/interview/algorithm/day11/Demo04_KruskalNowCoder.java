@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day11.图;
+package com.lane.interview.algorithm.day11;
 
 // 课上没讲这个实现
 // 因为是一样的，都是用Kruskal算法实现最小生成树，只不过是牛客网的测试数据

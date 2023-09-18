@@ -10,7 +10,7 @@ import com.lane.interview.algorithm.day2.Node;
 /**
  * https://leetcode.cn/problems/add-two-numbers
  */
-public class mid_add_two_numbers {
+public class Q02_addTwoNumbers {
     public static Node add_two_numbers (Node l1, Node l2) {
         Node pre = new Node(0);
         Node cur = pre;
