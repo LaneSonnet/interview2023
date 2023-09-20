@@ -3,6 +3,19 @@ package com.lane.interview.algorithm.day12;
 import java.util.HashMap;
 
 // 本题测试链接：https://leetcode.com/problems/stickers-to-spell-word
+
+/**
+ * 贴纸拼单词
+ * 题目描述：
+ * 给定一个字符串str，给定一个字符串类型的数组arr，出现的字符都是小写英文
+ * arr中的字符串没有重复，且都是不同的。再给定一个字符串类型的aim，请问
+ * 使用arr中的字符串最少可以生成多少个aim，arr中的每个字符串都可以使用无限次
+ * （注意：使用arr中的某个字符串时，可以把其中的某些字符去掉，但必须保证每种字符
+ * 都剩下至少一次。）
+ * 举例：
+ * str = "babac"，arr = {"ba","c","abcd"}
+ * 要想组成str，arr至少要使用一次"ba"，一次"abcd"。所以返回2(或者两次"abcd"，答案也是2)
+ */
 public class Demo09_StickersToSpellWord {
 
 	public static int minStickers1(String[] stickers, String target) {
@@ -11,22 +24,35 @@ public class Demo09_StickersToSpellWord {
 	}
 
 	// 所有贴纸stickers，每一种贴纸都有无穷张
-	// target
-	// 最少张数
+	// target是最少张数
+	/**
+	 * 暴力递归
+	 */
 	public static int process1(String[] stickers, String target) {
+		// base case
 		if (target.length() == 0) {
 			return 0;
 		}
 		int min = Integer.MAX_VALUE;
+		// 枚举每一张贴纸
 		for (String first : stickers) {
+			// 剪枝
+			// rest是剩余的目标字符串
 			String rest = minus(target, first);
+			// 如果没有变小，说明first贴纸不能贴出target
+			// 如果变小了，说明first贴纸贴出了rest，后续的贴纸都可以用
 			if (rest.length() != target.length()) {
+				// 继续看看rest需要几张贴纸
 				min = Math.min(min, process1(stickers, rest));
 			}
 		}
+		// min + 1 是当前层的贴纸数
 		return min + (min == Integer.MAX_VALUE ? 0 : 1);
 	}
 
+	/**
+	 * 从s1中减去s2中的字符
+	 */
 	public static String minus(String s1, String s2) {
 		char[] str1 = s1.toCharArray();
 		char[] str2 = s2.toCharArray();
