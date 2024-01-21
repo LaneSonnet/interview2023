@@ -59,7 +59,9 @@ public class Demo13_Coffee {
 
 	// 以下为贪心+优良暴力
 	public static class Machine {
+		// 下一次可以使用的时间点
 		public int timePoint;
+		// 工作时长(固定参数，就是题中给的)
 		public int workTime;
 
 		public Machine(int t, int w) {
@@ -68,6 +70,8 @@ public class Demo13_Coffee {
 		}
 	}
 
+	// 比较器 用于给咖啡机排序
+	// 按照下一次可以使用的时间点 + 工作时长，小的排在前面
 	public static class MachineComparator implements Comparator<Machine> {
 
 		@Override
@@ -79,15 +83,20 @@ public class Demo13_Coffee {
 
 	// 优良一点的暴力尝试的方法
 	public static int minTime1(int[] arr, int n, int a, int b) {
+		// 所有咖啡机放入小根堆
 		PriorityQueue<Machine> heap = new PriorityQueue<Machine>(new MachineComparator());
 		for (int i = 0; i < arr.length; i++) {
 			heap.add(new Machine(0, arr[i]));
 		}
 		int[] drinks = new int[n];
 		for (int i = 0; i < n; i++) {
+			// 从小根堆中弹出一个咖啡机
 			Machine cur = heap.poll();
+			// 当前咖啡机的下一次可以使用的时间点，就是当前咖啡机的时间点 + 工作时长
 			cur.timePoint += cur.workTime;
+			// 记录当前咖啡机的下一次可以使用的时间点
 			drinks[i] = cur.timePoint;
+			// 把当前咖啡机放回小根堆
 			heap.add(cur);
 		}
 		return bestTime(drinks, a, b, 0, 0);
@@ -98,6 +107,16 @@ public class Demo13_Coffee {
 	// air 挥发干净的时间(并行)
 	// free 洗的机器什么时候可用
 	// drinks[index.....]都变干净，最早的结束时间（返回）
+
+	/**
+	 * 暴力递归
+	 * @param drinks 所有杯子可以开始洗的时间
+	 * @param wash 单杯洗干净的时间（串行）
+	 * @param air 挥发干净的时间(并行)
+	 * @param index drinks[index.....]都变干净，最早的结束时间（返回）
+	 * @param free 洗的机器什么时候可用
+	 * @return
+	 */
 	public static int bestTime(int[] drinks, int wash, int air, int index, int free) {
 		if (index == drinks.length) {
 			return 0;
@@ -130,17 +149,25 @@ public class Demo13_Coffee {
 		return bestTimeDp(drinks, a, b);
 	}
 
+	/**
+	 * 动态规划
+	 */
 	public static int bestTimeDp(int[] drinks, int wash, int air) {
 		int N = drinks.length;
+		// 所有杯子都洗干净，最早的结束时间，最大可能是多少
 		int maxFree = 0;
+		// 就是最大的喝完的时间点 + 洗的时间
 		for (int i = 0; i < drinks.length; i++) {
 			maxFree = Math.max(maxFree, drinks[i]) + wash;
 		}
+		// 初始化dp表
 		int[][] dp = new int[N + 1][maxFree + 1];
+		// 从下往上填
 		for (int index = N - 1; index >= 0; index--) {
+			// 从左往右填
 			for (int free = 0; free <= maxFree; free++) {
 				int selfClean1 = Math.max(drinks[index], free) + wash;
-				if (selfClean1 > maxFree) {
+				if (selfClean1 > maxFree) { //越界了
 					break; // 因为后面的也都不用填了
 				}
 				// index号杯子 决定洗

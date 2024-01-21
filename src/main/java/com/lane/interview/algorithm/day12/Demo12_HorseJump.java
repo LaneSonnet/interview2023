@@ -1,22 +1,37 @@
 package com.lane.interview.algorithm.day12;
 
+/**
+ * 马走日
+ * 问题描述：
+ * 中国象棋中的马走日，给定一个棋盘，棋盘的大小为10*9，棋盘的左下角为(0,0)位置，棋盘的右上角为(9,8)位置，
+ * 给定三个参数x，y，k，返回马从(0,0)位置出发，必须走k步，最后落在(x,y)上的方法数有多少种？
+ *
+ */
 public class Demo12_HorseJump {
 
 	// 当前来到的位置是（x,y）
 	// 还剩下rest步需要跳
 	// 跳完rest步，正好跳到a，b的方法数是多少？
 	// 10 * 9
+
+	/**
+	 * 暴力递归
+	 */
 	public static int jump(int a, int b, int k) {
 		return process(0, 0, k, a, b);
 	}
 
 	public static int process(int x, int y, int rest, int a, int b) {
+		// 边界
 		if (x < 0 || x > 9 || y < 0 || y > 8) {
 			return 0;
 		}
+		// base case
 		if (rest == 0) {
 			return (x == a && y == b) ? 1 : 0;
 		}
+		// 分别尝试8种可能性
+		// 因为马可以往8个不同方向走
 		int ways = process(x + 2, y + 1, rest - 1, a, b);
 		ways += process(x + 1, y + 2, rest - 1, a, b);
 		ways += process(x - 1, y + 2, rest - 1, a, b);
@@ -28,11 +43,19 @@ public class Demo12_HorseJump {
 		return ways;
 	}
 
+	/**
+	 * 动态规划
+	 */
 	public static int dp(int a, int b, int k) {
+		// 初始化dp表
 		int[][][] dp = new int[10][9][k + 1];
+		// base case
 		dp[a][b][0] = 1;
+		// 从第一层开始，一直计算到第k层
 		for (int rest = 1; rest <= k; rest++) {
+			// 从第0行开始，一直计算到第9行
 			for (int x = 0; x < 10; x++) {
+				// 从第0列开始，一直计算到第8列
 				for (int y = 0; y < 9; y++) {
 					int ways = pick(dp, x + 2, y + 1, rest - 1);
 					ways += pick(dp, x + 1, y + 2, rest - 1);
@@ -49,6 +72,9 @@ public class Demo12_HorseJump {
 		return dp[0][0][k];
 	}
 
+	/**
+	 * 在dp表中，得到dp[x][y][rest]的值，但如果(x，y)位置越界的话，返回0；
+	 */
 	public static int pick(int[][][] dp, int x, int y, int rest) {
 		if (x < 0 || x > 9 || y < 0 || y > 8) {
 			return 0;

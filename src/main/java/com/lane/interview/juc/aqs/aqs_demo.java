@@ -1,5 +1,6 @@
 package com.lane.interview.juc.aqs;
 
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -75,4 +76,37 @@ public class aqs_demo {
         System.out.println(j);
     }
 
+}
+/*
+*  基于 AQS 来实现一个非可重入的互斥锁
+* */
+class Mutex  {
+
+    private Sync sync = new Sync();
+
+    public void lock () {
+        sync.acquire(1);
+    }
+
+    public void unlock () {
+        sync.release(1);
+    }
+
+    private static class Sync extends AbstractQueuedSynchronizer {
+        @Override
+        protected boolean tryAcquire (int arg) {
+            return compareAndSetState(0, 1);
+        }
+
+        @Override
+        protected boolean tryRelease (int arg) {
+            setState(0);
+            return true;
+        }
+
+        @Override
+        protected boolean isHeldExclusively () {
+            return getState() == 1;
+        }
+    }
 }
