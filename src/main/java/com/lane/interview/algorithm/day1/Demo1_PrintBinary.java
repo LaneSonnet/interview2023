@@ -11,7 +11,7 @@ public class Demo1_PrintBinary {
 
         public static void main(String[] args) {
             //打印1-100的二进制
-            for (int i = 1; i <= 100; i++) {
+            for (int i = 1; i <= 10; i++) {
                 print(i);
             }
         }

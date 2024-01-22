@@ -9,6 +9,4 @@ import java.util.concurrent.CountDownLatch;
 public class MutiThreadPrintABC {
     // 交替打印 FooBar，使用CountDownLatch实现
 
-
-
 }

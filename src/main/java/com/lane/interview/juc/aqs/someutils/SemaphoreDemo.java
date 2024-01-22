@@ -14,7 +14,6 @@ import static java.lang.Thread.sleep;
 public class SemaphoreDemo {
     public static void main1(String[] args) {
         // 1. 创建 semaphore 对象
-        Semaphore semaphore = new Semaphore(2);
         // 2. 10个线程同时运行
         for (int i = 0; i < 8; i++) {
             new Thread(() -> {
@@ -48,9 +47,17 @@ public class SemaphoreDemo {
                 try {
                     System.out.println(Thread.currentThread().getName() + " 正在尝试获取许可...");
                     semaphore.acquire();
+
+
+
                     System.out.println(Thread.currentThread().getName() + " 已获取许可，正在执行操作...");
                     Thread.sleep(2000); // 模拟执行一些操作
-                    System.out.println(Thread.currentThread().getName() + " 执行完毕，释放许可...");
+                    // 获取当前时间，单位纳秒
+                    long now = System.nanoTime();
+                    System.out.println(Thread.currentThread().getName() + " 执行完毕，释放许可..." + now);
+
+
+
                     semaphore.release();
                 } catch (InterruptedException e) {
                     e.printStackTrace();
