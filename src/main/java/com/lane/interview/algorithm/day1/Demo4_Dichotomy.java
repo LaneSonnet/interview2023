@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * 二分法
- *
+ * 时间复杂度O(logN)
  * @ Author:  duenpu
  * @ Date  :  23:42 2023/8/12
  */
@@ -18,8 +18,8 @@ public class Demo4_Dichotomy {
         int right = sortedArr.length - 1;
         int mid = 0;
         while (left < right) {
-//            mid = left + ((right - left) >> 1);
-            mid = right - ((right - left) >> 1);
+            mid = left + ((right - left) >> 1);
+//            mid = right - ((right - left) >> 1);
             if (sortedArr[mid] == num) {
                 return Boolean.TRUE;
             } else if (sortedArr[mid] > num ) {
@@ -28,7 +28,7 @@ public class Demo4_Dichotomy {
                 left = mid + 1;
             }
         }
-        return sortedArr[right] == num;
+        return sortedArr[left] == num;
     }
 
     //有序数组中满足>=value的最左位置
@@ -142,6 +142,7 @@ public class Demo4_Dichotomy {
                 break;
             }
         }
+
     }
 
     // 生成随机样本数组

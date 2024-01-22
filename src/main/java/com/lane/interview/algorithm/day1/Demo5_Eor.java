@@ -112,6 +112,8 @@ public class Demo5_Eor {
     public static HashMap<Integer, Integer> map = new HashMap<>();
 
     // 请保证arr中，只有一种数出现了K次，其他数都出现了M次
+    // K < M
+    // M > 1
     public static int onlyKTimes(int[] arr, int k, int m) {
         if (map.size() == 0) {
             mapCreater(map);

@@ -30,6 +30,11 @@ public class Demo2_Sort {
             return;
         }
         int length = arr.length;
+        // 0 ~ N-1
+        // 1 ~ N-1
+        // 2 ~ N-1
+        // ...
+        // 找到这个范围上最小值的下标，放到i位置上
         for (int i = 0; i < length; i++) {
             int minIndex = i;
             for (int j = i + 1; j < length; j++) {
@@ -48,6 +53,11 @@ public class Demo2_Sort {
             return;
         }
         int length = arr.length;
+        // 0 ~ N-1
+        // 0 ~ N-2
+        // 0 ~ N-3
+        // ...
+        // 每次对相邻的两个数进行比较，把较大的数放到后面，每次都能确定一个最大值
         for (int i = length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -66,6 +76,11 @@ public class Demo2_Sort {
             return;
         }
         int length = arr.length;
+        // 0 ~ 0 有序的(跳过)
+        // 0 ~ 1 有序的
+        // 0 ~ 2 有序的
+        // ...
+        // 从end位置开始，往前看，如果前面的数比自己大，就往前交换，直到不比自己大或者到了0位置
         for (int end = 1; end < length; end++) {
             for (int pre = end - 1; pre >= 0 && arr[pre] > arr[pre + 1]; pre--) {
                 swap(arr, pre, pre + 1);
