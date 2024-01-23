@@ -20,8 +20,8 @@ public class Demo7_TwoQueueImplementStack {
 		public Queue<T> help;
 
 		public TwoQueueStack() {
-			queue = new LinkedList<>();
-			help = new LinkedList<>();
+			this.queue = new LinkedList<>();
+			this.help = new LinkedList<>();
 		}
 
 		public void push(T value) {

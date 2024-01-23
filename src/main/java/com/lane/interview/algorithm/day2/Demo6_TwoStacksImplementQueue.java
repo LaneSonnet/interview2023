@@ -10,17 +10,17 @@ public class Demo6_TwoStacksImplementQueue {
 
 	/**
 	 * 两个栈用来导数据，一个进栈一个出栈
+	 * 注意：
 	 * push栈必须一次性导完数据，导完后再倒入pop栈
-	 * pop栈不为空时，不能导数据
-	 * pop栈为空时，将push栈的数据倒入pop栈
+	 * pop栈不为空时，不能导数据; pop栈为空时，将push栈的数据倒入pop栈
 	 */
 	public static class TwoStacksQueue {
 		public Stack<Integer> stackPush;
 		public Stack<Integer> stackPop;
 
 		public TwoStacksQueue() {
-			stackPush = new Stack<Integer>();
-			stackPop = new Stack<Integer>();
+			this.stackPush = new Stack<Integer>();
+			this.stackPop = new Stack<Integer>();
 		}
 
 		// push栈向pop栈倒入数据
