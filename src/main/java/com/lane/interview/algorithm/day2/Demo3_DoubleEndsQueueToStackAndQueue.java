@@ -5,6 +5,10 @@ import java.util.Queue;
 import java.util.Stack;
 
 /**
+ * 实现队列和栈
+ * ①用数组实现
+ * ②用双向链表实现
+ *
  * @ Author:  duenpu
  * @ Date  :  00:51 2023/8/15
  */

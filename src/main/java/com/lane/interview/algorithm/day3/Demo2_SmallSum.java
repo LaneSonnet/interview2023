@@ -1,5 +1,11 @@
 package com.lane.interview.algorithm.day3;
 
+
+/*
+* 小和问题
+* 在一个数组中，每一个数左边比当前数小的数累加起来，叫做这个数组的小和
+* 求一个数组的所有小和的总和
+* */
 public class Demo2_SmallSum {
 
 	public static int smallSum(int[] arr) {

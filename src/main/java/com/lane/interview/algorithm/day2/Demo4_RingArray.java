@@ -1,5 +1,8 @@
 package com.lane.interview.algorithm.day2;
 
+/*
+*  数组实现队列
+* */
 public class Demo4_RingArray {
 
 	public static class MyQueue {

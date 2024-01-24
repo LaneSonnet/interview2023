@@ -244,7 +244,6 @@ public class Demo5_Eor {
 
     // 打印一个int的二进制中1的个数
     public static void printOneNum(int num) {
-        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
         int count = 0;
         while (num != 0) {
             int rightOne = num & (~num + 1);
