@@ -11,6 +11,6 @@ public class DoubleNode {
     public DoubleNode next;
 
     public DoubleNode(int data) {
-        value = data;
+        this.value = data;
     }
 }

@@ -9,6 +9,6 @@ public class ListNode {
     public ListNode next;
 
     public ListNode(int data) {
-        value = data;
+        this.value = data;
     }
 }

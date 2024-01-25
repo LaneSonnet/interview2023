@@ -74,17 +74,17 @@ public class Q01_reverse {
     // ------------------------------------------反转链表前N个节点------------------------------------------
 
     // 递归方式
-    ListNode successor = null;
+    ListNode pre = null;
 
     public ListNode reverseN(ListNode head, int n) {
         if (n == 1) {
-            successor = head.next;
+            pre = head.next;
             return head;
         }
-        ListNode last = reverseN(head.next, n - 1);
+        ListNode newHead = reverseN(head.next, n - 1);
         head.next.next = head;
-        head.next = successor;
-        return last;
+        head.next = pre;
+        return newHead;
     }
 
     // ------------------------------------------反转链表一部分------------------------------------------
@@ -103,7 +103,7 @@ public class Q01_reverse {
         ListNode end = dummyHead.next;
 
         // 将指针移到相应的位置
-        for (int step = 0; step < m - 1; step++) {
+        for (int step = 1; step < m; step++) {
             pre = pre.next;
             end = end.next;
         }
@@ -127,7 +127,7 @@ public class Q01_reverse {
         if (m == 1) {
             return reverseN(head, n);
         }
-        head.next = reverseBetween(head.next, m - 1, n - 1);
+        head.next = reverseBetween1(head.next, m - 1, n - 1);
         return head;
     }
 
@@ -173,5 +173,41 @@ public class Q01_reverse {
             head = next;
         }
         return pre;
+    }
+
+
+
+    // 递归实现
+    // https://leetcode.cn/problems/reverse-nodes-in-k-group/solutions/151616/di-gui-java-by-reedfan-2/
+    public ListNode reverseKGroup1(ListNode head, int k) {
+        //退出递归的条件
+        if(head == null ) {
+            return head;
+        }
+        ListNode tail = head;
+        for(int i =0;i<k;i++){
+            // if(tail == null) break; // 这个是不足k也反转
+            if(tail == null) {
+                return head; // 不足k的节点，保持原来顺序
+            }
+            tail = tail.next;
+        }
+        //反转前k个节点
+        ListNode newHead = reverse(head, tail);
+        //下一轮的开始还是tail节点，因为你是要确定下一次返回链表的头节点的位置
+        head.next =  reverseKGroup1(tail,k);
+        return newHead;
+    }
+    public ListNode reverse(ListNode head, ListNode tail){
+        ListNode prev =null;
+        ListNode cur = head;
+        //只需要把原来判断尾节点为空的，改为在传入节点就行。
+        while(cur !=tail){
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev =cur;
+            cur = next;
+        }
+        return prev;
     }
 }
