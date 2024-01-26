@@ -180,24 +180,26 @@ public class Q01_reverse {
     // 递归实现
     // https://leetcode.cn/problems/reverse-nodes-in-k-group/solutions/151616/di-gui-java-by-reedfan-2/
     public ListNode reverseKGroup1(ListNode head, int k) {
-        //退出递归的条件
-        if(head == null ) {
-            return head;
+        if (head == null) {
+            return null;
         }
-        ListNode tail = head;
-        for(int i =0;i<k;i++){
-            // if(tail == null) break; // 这个是不足k也反转
-            if(tail == null) {
-                return head; // 不足k的节点，保持原来顺序
+        // 区间 [a, b) 包含 k 个待反转元素
+        ListNode a, b;
+        a = b = head;
+        for (int i = 0; i < k; i++) {
+            // 不足 k 个，不需要反转，base case
+            if (b == null) {
+                return head;
             }
-            tail = tail.next;
+            b = b.next;
         }
-        //反转前k个节点
-        ListNode newHead = reverse(head, tail);
-        //下一轮的开始还是tail节点，因为你是要确定下一次返回链表的头节点的位置
-        head.next =  reverseKGroup1(tail,k);
+        // 反转前 k 个元素
+        ListNode newHead = reverse(a, b);
+        // 递归反转后续链表并连接起来
+        a.next = reverseKGroup(b, k);
         return newHead;
     }
+
     public ListNode reverse(ListNode head, ListNode tail){
         ListNode prev =null;
         ListNode cur = head;

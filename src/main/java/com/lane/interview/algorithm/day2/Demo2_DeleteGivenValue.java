@@ -29,6 +29,7 @@ public class Demo2_DeleteGivenValue {
         return head;
     }
 
+
     // 双向链表中去除所有值为num的节点
     public static DoubleNode removeValue(DoubleNode head, int num) {
         // head来到第一个不需要删的位置
