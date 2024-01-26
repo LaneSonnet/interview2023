@@ -47,7 +47,8 @@ public class Demo2_Heap {
 		// 复杂度 logN
 		private void heapInsert(int[] arr, int index) {
 			// [index] [index-1]/2
-			// index == 0
+			// index == 0 退出
+			// arr[index] 没有父亲大 退出
 			while (arr[index] > arr[(index - 1) / 2]) {
 				swap(arr, index, (index - 1) / 2);
 				index = (index - 1) / 2;
