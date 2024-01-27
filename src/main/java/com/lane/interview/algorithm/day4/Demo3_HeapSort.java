@@ -5,7 +5,9 @@ import java.util.PriorityQueue;
 
 public class Demo3_HeapSort {
 
-	// 堆排序额外空间复杂度O(1)
+	// 堆排序
+	// 额外空间复杂度O(1)
+	// 时间复杂度O(N*logN)
 	public static void heapSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;

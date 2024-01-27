@@ -11,6 +11,11 @@ import java.util.List;
 public class HeapGreater<T> {
 
 	private ArrayList<T> heap;
+	//反向索引表
+	// [a,b,c]
+	// a -> 0
+	// b -> 1
+	// c -> 2
 	private HashMap<T, Integer> indexMap;
 	private int heapSize;
 	private Comparator<? super T> comp;
@@ -44,6 +49,13 @@ public class HeapGreater<T> {
 		heapInsert(heapSize++);
 	}
 
+	/*
+	* 弹出元素
+	* 思路：
+	* 1.将堆顶元素和堆中最后一个元素交换
+	* 2.删除最后一个元素
+	* 3.针对堆顶元素调整堆
+	* */
 	public T pop() {
 		T ans = heap.get(0);
 		swap(0, heapSize - 1);
@@ -53,11 +65,23 @@ public class HeapGreater<T> {
 		return ans;
 	}
 
+	/*
+	* 删除一个元素
+	* 思路：
+	* 1.将要删除的元素和堆中最后一个元素交换
+	* 2.删除最后一个元素
+	* 3.调整堆
+	* */
 	public void remove(T obj) {
+		// replace是最后一个元素
 		T replace = heap.get(heapSize - 1);
+		// index是要删除元素的索引
 		int index = indexMap.get(obj);
+		// 反向索引表中把要删除元素干掉
 		indexMap.remove(obj);
+		// 把最后一个元素在堆中干掉
 		heap.remove(--heapSize);
+		// 判断要删除的元素是否是最后一个元素：如果是，不用调整堆;如果不是，调整堆
 		if (obj != replace) {
 			heap.set(index, replace);
 			indexMap.put(replace, index);
@@ -65,6 +89,9 @@ public class HeapGreater<T> {
 		}
 	}
 
+	/*
+	* 调整堆
+	* */
 	public void resign(T obj) {
 		heapInsert(indexMap.get(obj));
 		heapify(indexMap.get(obj));
