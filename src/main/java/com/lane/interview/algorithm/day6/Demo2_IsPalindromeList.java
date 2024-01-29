@@ -4,6 +4,10 @@ import java.util.Stack;
 
 /**
  * 判断一个链表是否为回文结构
+ *
+ *
+ * 附加题： 给定链表：L1→L2→L3→L4→R1→R2→R3→R4
+ * 调整成：L1→R4→L2→R3→L3→R2→L4→R1
  */
 public class Demo2_IsPalindromeList {
 

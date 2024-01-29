@@ -1,5 +1,11 @@
 package com.lane.interview.algorithm.day3;
 
+/*
+* 逆序对
+*
+* https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof
+*
+* */
 public class Demo3_ReversePair {
 
 	public static int reverPairNumber(int[] arr) {
@@ -28,7 +34,11 @@ public class Demo3_ReversePair {
 		int p1 = m;
 		int p2 = r;
 		int res = 0;
+		// 左组是l~m
+		// 右组是m+1~r
+		// 所以p2 > m 没有等于号
 		while (p1 >= L && p2 > m) {
+			// 注意边界值  p2 - m 代表区间是[m+1, p2]
 			res += arr[p1] > arr[p2] ? (p2 - m) : 0;
 			help[i--] = arr[p1] > arr[p2] ? arr[p1--] : arr[p2--];
 		}
