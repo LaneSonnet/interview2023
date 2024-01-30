@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm_workbook.p07_binarySearch;
+package com.lane.interview.algorithm_workbook.p05_binarySearch;
 
 /**
  *
