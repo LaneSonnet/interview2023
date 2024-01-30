@@ -1,9 +1,9 @@
-package com.lane.interview.algorithm_workbook.p07_binarySearch;
+package com.lane.interview.algorithm_workbook.p05_binarySearch;
 
 /**
  * 有序数组中是否存在某个数
  *
- * https://leetcode.cn/problems/binary-search/
+ * https://leetcode.cn/problems/binary-search/description/
  *
  * @ Author:  duenpu
  * @ Date  :  23:31 2023/9/15

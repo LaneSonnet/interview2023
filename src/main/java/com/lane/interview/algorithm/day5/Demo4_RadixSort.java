@@ -24,7 +24,7 @@ import java.util.Arrays;
  */
 public class Demo4_RadixSort {
 
-	// only for no-negative value
+	// only for no-negative value 只适用于非负整数
 	public static void radixSort(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return;
@@ -46,17 +46,19 @@ public class Demo4_RadixSort {
 	}
 
 	// arr[L..R]排序  ,  最大值的十进制位数digit
+	// 看不懂的话，看视频09 1小时40分左右
 	public static void radixSort(int[] arr, int L, int R, int digit) {
 		final int radix = 10;
 		int i = 0, j = 0;
 		// 有多少个数准备多少个辅助空间
 		int[] help = new int[R - L + 1];
-		for (int d = 1; d <= digit; d++) { // 有多少位就进出几次
+		for (int d = 1; d <= digit; d++) { // 有多少位就进出几次，d是进出的次数
 			// 10个空间
 		    // count[0] 当前位(d位)是0的数字有多少个
 			// count[1] 当前位(d位)是(0和1)的数字有多少个
 			// count[2] 当前位(d位)是(0、1和2)的数字有多少个
 			// count[i] 当前位(d位)是(0~i)的数字有多少个
+			// 转换成累加和数组
 			int[] count = new int[radix]; // count[0..9]
 			for (i = L; i <= R; i++) {
 				// 103  1   3

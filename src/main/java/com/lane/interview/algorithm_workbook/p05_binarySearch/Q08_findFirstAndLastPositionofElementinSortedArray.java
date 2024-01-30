@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm_workbook.p07_binarySearch;
+package com.lane.interview.algorithm_workbook.p05_binarySearch;
 
 /**
  * 给你一个按照非递减顺序排列的整数数组 nums，和一个目标值 target。请你找出给定目标值在数组中的开始位置和结束位置。

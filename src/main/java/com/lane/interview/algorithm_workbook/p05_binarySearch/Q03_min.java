@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm_workbook.p07_binarySearch;
+package com.lane.interview.algorithm_workbook.p05_binarySearch;
 
 /**
  * 定义局部最小的概念。arr长度为1时，arr[0]是局部最小。arr的长度为N(N>1)时，

@@ -24,7 +24,10 @@ public class Demo4_BiggerThanRightTwice {
 		int ans = 0;
 		// 目前囊括进来的数，是从[M+1, windowR)
 		int windowR = m + 1;
+		// 先扫一遍左组所有的数，看看右组有多少个数，比左组的数的两倍小
+		// 可以理解为双指针
 		for (int i = L; i <= m; i++) {
+			// 一定要加(long)，为了防止二倍之后越界
 			while (windowR <= r && (long) arr[i] > (long) arr[windowR] * 2) {
 				windowR++;
 			}
