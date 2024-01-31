@@ -28,12 +28,13 @@ public class Demo8_SuccessorNode {
 		if (node == null) {
 			return node;
 		}
+		// 情况1
 		if (node.right != null) {
 			return getLeftMost(node.right);
 		} else { // 无右子树
 			Node parent = node.parent;
 			// 什么时候跳出循环
-			// 1. 我来到一个节点，我是我父亲的做孩子，我就跳出循环
+			// 1. 我来到一个节点，我是我父亲的左孩子，我就跳出循环
 			// 2. 我来到一个节点，我的父亲是空，说明我是整棵树最右的节点，我就跳出循环
 			while (parent != null && parent.right == node) { // 当前节点是其父亲节点右孩子
 				// 我和我父亲 一起往上串
