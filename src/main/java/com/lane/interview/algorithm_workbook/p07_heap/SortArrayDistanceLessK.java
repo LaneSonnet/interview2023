@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day4;
+package com.lane.interview.algorithm_workbook.p07_heap;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
@@ -8,7 +8,7 @@ import java.util.PriorityQueue;
 * 已知一个几乎有序的数组。几乎有序是指，如果把数组排好顺序的话，每个元素移动的距离一定不超过k
 * k相对于数组长度来说是比较小的。请选择一个合适的排序策略，对这个数组进行排序。
 * */
-public class Demo4_SortArrayDistanceLessK {
+public class SortArrayDistanceLessK {
 
 	public static void sortedArrDistanceLessK(int[] arr, int k) {
 		if (k == 0) {

@@ -46,6 +46,14 @@ public class Demo1_Comparator {
 
 	}
 
+	public static class MyComparator implements Comparator<Student> {
+
+		@Override
+		public int compare(Student o1, Student o2) {
+			return o1.name == o2.name ? (o1.id - o2.id) : (o1.name.compareTo(o2.name));
+		}
+	}
+
 	public static class IdDescendingComparator implements Comparator<Student> {
 
 		@Override
