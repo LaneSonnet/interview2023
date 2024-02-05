@@ -74,8 +74,7 @@ public class Demo2_IsPalindromeList {
 			n2 = n2.next.next; // n2 -> end
 		}
 		// n1 中点
-		
-		
+
 		n2 = n1.next; // n2 -> right part first node
 		n1.next = null; // mid.next -> null
 		Node n3 = null;

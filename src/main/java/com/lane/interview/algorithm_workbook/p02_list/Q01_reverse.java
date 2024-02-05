@@ -196,7 +196,7 @@ public class Q01_reverse {
         // 反转前 k 个元素
         ListNode newHead = reverse(a, b);
         // 递归反转后续链表并连接起来
-        a.next = reverseKGroup(b, k);
+        a.next = reverseKGroup1(b, k);
         return newHead;
     }
 
@@ -211,5 +211,19 @@ public class Q01_reverse {
             cur = next;
         }
         return prev;
+    }
+
+    // ------------------------------------------两两一组反转链表------------------------------------------
+    // https://leetcode.cn/problems/swap-nodes-in-pairs/
+    class Solution {
+        public ListNode swapPairs(ListNode head) {
+            if(head == null || head.next == null){
+                return head;
+            }
+            ListNode next = head.next;
+            head.next = swapPairs(next.next);
+            next.next = head;
+            return next;
+        }
     }
 }

@@ -32,7 +32,7 @@ package com.lane.interview.algorithm_workbook.p09_trie;
  * 3.支持前缀查询，频次统计
  *
  */
-public class Demo1_Trie {
+public class Q01_Trie {
 
 	// 测试链接 : https://leetcode.cn/problems/implement-trie-ii-prefix-tree/
 	// 提交Trie类可以直接通过
