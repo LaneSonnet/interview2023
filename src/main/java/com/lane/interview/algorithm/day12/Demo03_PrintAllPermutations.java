@@ -9,7 +9,7 @@ import java.util.List;
 public class Demo03_PrintAllPermutations {
 
 	/**
-	 * 普通的递归
+	 * 普通的暴力递归
 	 */
 	public static List<String> permutation1(String s) {
 		List<String> ans = new ArrayList<>();
@@ -104,6 +104,7 @@ public class Demo03_PrintAllPermutations {
 			ans.add(String.valueOf(str));
 		} else {
 			// 这个数组记录之前出现过的字符，256的长度是因为字符的范围是0~255
+			// 剪枝思想
 			boolean[] visited = new boolean[256];
 			for (int i = index; i < str.length; i++) {
 				if (!visited[str[i]]) {
