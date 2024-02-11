@@ -3,6 +3,7 @@ package com.lane.interview.algorithm.day12;
 /**
  * 给定一个字符串str，str全部由数字字符组成，如果str中某一个或者相邻两个字符组成的子串值在1~26之间，
  * 则这个子串可以转换为一个字母。规定‘1’转换为“A”，“2”转换为“B”...“26”转换为“Z”。
+ * 举个例子: “1111”可以转换为“AAAA”，“AKA”，“KAA”，“AOK”和“KK”五种
  * 请求出str有多少种不同的转换结果，并返回种数。
  */
 public class Demo08_ConvertToLetterString {
@@ -16,14 +17,17 @@ public class Demo08_ConvertToLetterString {
 		return process(str.toCharArray(), 0);
 	}
 
+	// 方法的含义：
 	// str[0..i-1]转化无需过问
 	// str[i.....]去转化，返回有多少种转化方法
-
 	/**
 	 * 暴力递归
 	 */
 	public static int process(char[] str, int i) {
 		// base case
+		// 为什么返回1？
+		// 此时i已经越界，那需要返回一种答案，这种答案就是之前str[0...i-1]做的决定
+		// 就是说之前的一步步转化，到最后需要收纳成一种答案，返回给上层，算作是"众多答案的其中一种"
 		if (i == str.length) {
 			return 1;
 		}
@@ -41,6 +45,7 @@ public class Demo08_ConvertToLetterString {
 		// 情况2：i位置的字符和i+1位置的字符一起转
 		// 这个判断的意思是边界判断
 		// ① i+1位置的字符存在
+		// 并且
 		// ② i位置的字符和i+1位置的字符一起转化的结果在1~26之间
 		if (i + 1 < str.length && (str[i] - '0') * 10 + str[i + 1] - '0' < 27) {
 			// i位置的字符和i+1位置的字符一起转，所以下一步是i+2位置的字符去转化
@@ -80,6 +85,7 @@ public class Demo08_ConvertToLetterString {
 			 * 			ways += process(str, i + 2);
 			 *      }
 			 */
+			// 直接进行str[i] != '0'这种可能性的分析，等于'0'这种可能性不用分析(因为数组初始化默认都是0)
 			if (str[i] != '0') {
 				int ways = dp[i + 1];
 				if (i + 1 < str.length && (str[i] - '0') * 10 + str[i + 1] - '0' < 27) {

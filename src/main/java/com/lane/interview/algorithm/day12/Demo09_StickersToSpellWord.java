@@ -28,6 +28,7 @@ public class Demo09_StickersToSpellWord {
 	/**
 	 * 暴力递归
 	 */
+	// 返回Integer.MAX_VALUE说明，stickers无法搞定target
 	public static int process1(String[] stickers, String target) {
 		// base case
 		if (target.length() == 0) {
@@ -47,16 +48,18 @@ public class Demo09_StickersToSpellWord {
 			}
 		}
 		// min + 1 是当前层的贴纸数
+		// min == Integer.MAX_VALUE说明，用了first，长度没变，所以加0
+		// min != Integer.MAX_VALUE说明，用了first，长度变了，所以要把first这张贴纸算上
 		return min + (min == Integer.MAX_VALUE ? 0 : 1);
 	}
 
 	/**
-	 * 从s1中减去s2中的字符
+	 * 从s1中减去s2中的字符，用词频来计算
 	 */
 	public static String minus(String s1, String s2) {
 		char[] str1 = s1.toCharArray();
 		char[] str2 = s2.toCharArray();
-		int[] count = new int[26];
+		int[] count = new int[26];// 统计次数
 		for (char cha : str1) {
 			count[cha - 'a']++;
 		}
@@ -77,6 +80,7 @@ public class Demo09_StickersToSpellWord {
 	public static int minStickers2(String[] stickers, String target) {
 		int N = stickers.length;
 		// 关键优化(用词频表替代贴纸数组)
+		// 横坐标是一张张贴纸，纵坐标是26个字母
 		int[][] counts = new int[N][26];
 		for (int i = 0; i < N; i++) {
 			char[] str = stickers[i].toCharArray();

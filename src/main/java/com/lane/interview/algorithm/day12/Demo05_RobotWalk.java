@@ -53,6 +53,8 @@ public class Demo05_RobotWalk {
 			return -1;
 		}
 		// 初始化dp表，一开始都是-1
+		// cur的范围: 1 ~ N
+		// rest的范围：0 ~ K
 		int[][] dp = new int[N + 1][K + 1];
 		for (int i = 0; i <= N; i++) {
 			for (int j = 0; j <= K; j++) {
@@ -100,7 +102,7 @@ public class Demo05_RobotWalk {
 		if (N < 2 || start < 1 || start > N || aim < 1 || aim > N || K < 1) {
 			return -1;
 		}
-		// 初始化dp表
+		// 初始化dp表，一开始所有位置默认都是0
 		int[][] dp = new int[N + 1][K + 1];
 		// 这行先把第一列的那个1先填上，表示aim = cur的时候，rest = 0的时候，直接返回1
 		dp[aim][0] = 1;

@@ -9,6 +9,7 @@ package com.lane.interview.algorithm.day10;
 // 请同学们务必参考如下代码中关于输入、输出的处理
 // 这是输入输出处理效率很高的写法
 // 测试链接 :
+// 测试链接 : https://www.nowcoder.com/questionTerminal/e7ed657974934a30b2010046536a5372
 
 import java.io.*;
 

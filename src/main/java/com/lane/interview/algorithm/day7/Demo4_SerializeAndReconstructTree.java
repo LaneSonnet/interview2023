@@ -60,6 +60,7 @@ public class Demo4_SerializeAndReconstructTree {
 	 */
 	public static Queue<String> inSerial(Node head) {
 		Queue<String> ans = new LinkedList<>();
+		StringBuilder sb = new StringBuilder();
 		ins(head, ans);
 		return ans;
 	}

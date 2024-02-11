@@ -13,6 +13,8 @@ public class Demo07_Knapsack {
 	// bag背包容量，不能超过这个载重
 	// 返回：不超重的情况下，能够得到的最大价值
 
+	//从左往右尝试模型
+
 	/**
 	 * 暴力递归
 	 */
@@ -26,12 +28,15 @@ public class Demo07_Knapsack {
 
 	// index 范围是 0~N
 	// rest  范围是 负~bag
+	// 当前考虑到了index位置的货物，index后续货物，都可以自由选择
+	// rest是背包的剩余空间
+	// 返回：不超重的情况下，能够得到的最大价值
 	public static int process(int[] w, int[] v, int index, int rest) {
 		// 剩余空间为负数，没法装了，返回-1
 		if (rest < 0) {
 			return -1;
 		}
-		// 当前index已经是最后一个货物了，没货了，返回0
+		// 当前index已经越界了，没货了，返回0
 		if (index == w.length) {
 			return 0;
 		}
@@ -60,7 +65,14 @@ public class Demo07_Knapsack {
 		int N = w.length;
 		// dp[i][j]的含义是：对于前i个货物，当前背包的容量是j，这种情况下能够得到的最大价值是多少？
 		// 纵坐标是index，横坐标是rest
+		// index范围：0~N，rest范围：负数~bag(负数不考虑)
+		// 所以dp的大小是(N+1)*(bag+1)
+		// 根据下面代码，可以得出dp表最后一行都是0
+		/*if (index == w.length) {
+			return 0;
+		}*/
 		// 根据暴力递归中的依赖关系分析，p1和p2都是依赖下一行的值，所以从下往上计算
+		// 最后一行都是0，所以从下往上计算，最后一行不用计算
 		int[][] dp = new int[N + 1][bag + 1];
 		// 纵坐标从下往上遍历
 		for (int index = N - 1; index >= 0; index--) {
