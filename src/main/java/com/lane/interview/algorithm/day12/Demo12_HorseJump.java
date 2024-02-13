@@ -45,18 +45,31 @@ public class Demo12_HorseJump {
 
 	/**
 	 * 动态规划
+	 * 三维的dp表
+	 *
 	 */
 	public static int dp(int a, int b, int k) {
+		// x范围0~9
+		// y范围0~8
+		// k范围0~k
 		// 初始化dp表
 		int[][][] dp = new int[10][9][k + 1];
 		// base case
-		dp[a][b][0] = 1;
+		dp[a][b][0] = 1;// 第0层中，只有这个位置是1，其余位置都是0
+		/*
+		* 看成是三维的空间
+		* 三条坐标轴是x,y,rest
+		* 可以从递归方法里看到，rest=0这一层是basecase，而每一层的ways都依赖于rest-1(什么意思？就是每一层的数据都依赖前一层的数据)
+		* 那显而易见，从第0层往上面依次计算每一层
+		*
+		* */
 		// 从第一层开始，一直计算到第k层
 		for (int rest = 1; rest <= k; rest++) {
 			// 从第0行开始，一直计算到第9行
 			for (int x = 0; x < 10; x++) {
 				// 从第0列开始，一直计算到第8列
 				for (int y = 0; y < 9; y++) {
+					// 优化点：pick函数
 					int ways = pick(dp, x + 2, y + 1, rest - 1);
 					ways += pick(dp, x + 1, y + 2, rest - 1);
 					ways += pick(dp, x - 1, y + 2, rest - 1);
@@ -81,6 +94,21 @@ public class Demo12_HorseJump {
 		}
 		return dp[x][y][rest];
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// 以下是暴力方法，为了验证，不用看
 
 	public static int ways(int a, int b, int step) {
 		return f(0, 0, step, a, b);

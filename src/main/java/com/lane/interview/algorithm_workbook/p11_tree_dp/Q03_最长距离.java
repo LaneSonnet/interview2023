@@ -11,7 +11,7 @@ import java.util.HashMap;
  * @ Date  :  23:05 2024/2/10
  */
 public class Q03_最长距离 {
-    public static int maxDistance(TreeNode head) {
+    public int maxDistance(TreeNode head) {
         return process(head).maxDistance;
     }
 
