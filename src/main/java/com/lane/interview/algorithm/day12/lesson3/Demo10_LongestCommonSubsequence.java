@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day12;
+package com.lane.interview.algorithm.day12.lesson3;
 
 // 这个问题leetcode上可以直接测
 // 链接：https://leetcode.com/problems/longest-common-subsequence/

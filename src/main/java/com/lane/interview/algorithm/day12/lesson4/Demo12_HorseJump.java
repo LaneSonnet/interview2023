@@ -1,10 +1,13 @@
-package com.lane.interview.algorithm.day12;
+package com.lane.interview.algorithm.day12.lesson4;
 
 /**
  * 马走日
  * 问题描述：
  * 中国象棋中的马走日，给定一个棋盘，棋盘的大小为10*9，棋盘的左下角为(0,0)位置，棋盘的右上角为(9,8)位置，
  * 给定三个参数x，y，k，返回马从(0,0)位置出发，必须走k步，最后落在(x,y)上的方法数有多少种？
+ *
+ * https://leetcode.cn/problems/minimum-knight-moves/description/
+ * https://leetcode.cn/problems/knight-probability-in-chessboard/description/
  *
  */
 public class Demo12_HorseJump {

@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day12;
+package com.lane.interview.algorithm.day12.lesson4;
 
 // 测试链接：https://leetcode.com/problems/longest-palindromic-subsequence/
 

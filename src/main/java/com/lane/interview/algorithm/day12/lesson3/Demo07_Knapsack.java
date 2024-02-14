@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day12;
+package com.lane.interview.algorithm.day12.lesson3;
 
 /**
  * 背包问题

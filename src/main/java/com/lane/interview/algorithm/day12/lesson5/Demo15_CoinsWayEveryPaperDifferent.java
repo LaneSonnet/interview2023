@@ -1,5 +1,18 @@
-package com.lane.interview.algorithm.day12;
+package com.lane.interview.algorithm.day12.lesson5;
 
+
+/*
+*   arr是货币数组，其中的值都是正数。再给定一个正数aim。
+*   每个值都认为是一张货币，
+*   即便是值相同的货币也认为每一张都是不同的，
+*   返回组成aim的方法数
+*   例如：arr = {1,1,1}，aim = 2
+*   第0个和第1个能组成2，第1个和第2个能组成2，第0个和第2个能组成2
+*   一共就3种方法，所以返回3
+*
+*	从左往右的尝试模型(当前元素要还是不要)
+*
+* */
 public class Demo15_CoinsWayEveryPaperDifferent {
 
 	public static int coinWays(int[] arr, int aim) {
@@ -14,24 +27,59 @@ public class Demo15_CoinsWayEveryPaperDifferent {
 		if (index == arr.length) { // 没钱了！
 			return rest == 0 ? 1 : 0;
 		} else {
-			return process(arr, index + 1, rest) + process(arr, index + 1, rest - arr[index]);
+			return process(arr, index + 1, rest) // 没要index位置的钱
+					+ process(arr, index + 1, rest - arr[index]); // 要index位置的钱
 		}
 	}
 
+	/*
+	* index范围是0~arr.length
+	* rest范围是0~aim
+	*
+	* */
 	public static int dp(int[] arr, int aim) {
 		if (aim == 0) {
 			return 1;
 		}
 		int N = arr.length;
 		int[][] dp = new int[N + 1][aim + 1];
+		/*
+		对应以下代码
+		* if (index == arr.length) { // 没钱了！
+			return rest == 0 ? 1 : 0;
+		}
+		* */
 		dp[N][0] = 1;
+		// 最后一行我们已经初始化好了
+		// 从最后一行开始，从下往上一行一行推
+		// 对于每一行，从左往右推
 		for (int index = N - 1; index >= 0; index--) {
 			for (int rest = 0; rest <= aim; rest++) {
+				// 注意basecase里的越界条件
 				dp[index][rest] = dp[index + 1][rest] + (rest - arr[index] >= 0 ? dp[index + 1][rest - arr[index]] : 0);
 			}
 		}
 		return dp[0][aim];
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	// 为了测试
 	public static int[] randomArray(int maxLen, int maxValue) {

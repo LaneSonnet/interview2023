@@ -1,8 +1,23 @@
-package com.lane.interview.algorithm.day12;
+package com.lane.interview.algorithm.day12.lesson5;
 
+
+/*
+* 给定5个参数，N，M，row，col，k
+  表示在N*M的区域上，醉汉Bob初始在(row,col)位置
+  Bob一共要迈出k步，且每步都会等概率向上下左右四个方向走一个单位
+  任何时候Bob只要离开N*M的区域，就直接死亡
+  返回k步之后，Bob还在N*M的区域的概率
+*
+*
+* 类似题目：
+* https://leetcode.cn/problems/out-of-boundary-paths/
+* https://leetcode.cn/problems/knight-probability-in-chessboard/description/
+* */
 public class Demo18_BobDie {
 
 	public static double livePosibility1(int row, int col, int k, int N, int M) {
+		// 总情况数：Math.pow(4, k) 每一步都有四个方向，一共k步，所以是4的k次方
+		// 总生存点数除以总情况数，就是最后的概率
 		return (double) process(row, col, k, N, M) / Math.pow(4, k);
 	}
 

@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day12;
+package com.lane.interview.algorithm.day12.lesson1;
 
 import java.util.ArrayList;
 import java.util.HashSet;

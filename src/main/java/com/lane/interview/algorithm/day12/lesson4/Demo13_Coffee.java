@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm.day12;
+package com.lane.interview.algorithm.day12.lesson4;
 
 import java.util.Arrays;
 import java.util.Comparator;
