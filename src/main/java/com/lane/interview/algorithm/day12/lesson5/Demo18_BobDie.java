@@ -55,6 +55,7 @@ public class Demo18_BobDie {
 				}
 			}
 		}
+		dp[row][col][k]
 		return (double) dp[row][col][k] / Math.pow(4, k);
 	}
 
@@ -66,8 +67,8 @@ public class Demo18_BobDie {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(livePosibility1(6, 6, 10, 50, 50));
-		System.out.println(livePosibility2(6, 6, 10, 50, 50));
+		System.out.println(livePosibility1(0, 0, 2, 2, 2));
+		System.out.println(livePosibility2(0, 0, 2, 2, 2));
 	}
 
 }

@@ -11,6 +11,10 @@ arr是货币数组，其中的值都是正数。再给定一个正数aim。
 例如：arr = {1,2,1,1,2,1,2}，aim = 4
 方法：1+1+1+1、1+1+2、2+2
 一共就3种方法，所以返回3
+
+
+斜率优化技巧
+
 * */
 
 public class Demo17_CoinsWaySameValueSamePapper {
