@@ -55,7 +55,7 @@ public class Demo18_BobDie {
 				}
 			}
 		}
-		dp[row][col][k]
+//		dp[row][col][k]
 		return (double) dp[row][col][k] / Math.pow(4, k);
 	}
 
