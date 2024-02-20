@@ -6,7 +6,7 @@ package com.lane.interview.algorithm_workbook.p05_binarySearch;
  * @ Author:  duenpu
  * @ Date  :  00:10 2023/9/16
  */
-public class Q04_sqrtx {
+public class Q04_平方根 {
     /**
      * 从题目的要求和示例我们可以看出，这其实是一个查找整数的问题，并且这个整数是有范围的。
      *

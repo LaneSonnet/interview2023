@@ -11,7 +11,7 @@ package com.lane.interview.algorithm_workbook.p05_binarySearch;
  * @ Author:  duenpu
  * @ Date  :  23:44 2023/9/15
  */
-public class Q03_min {
+public class Q03_局部最小值 {
     //局部最小值
     public static int min(int[] arr) {
         if (arr == null || arr.length == 0) {

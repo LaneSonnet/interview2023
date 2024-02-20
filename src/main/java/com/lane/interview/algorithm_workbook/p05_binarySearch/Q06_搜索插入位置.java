@@ -14,7 +14,7 @@ import java.util.Arrays;
  * @ Author:  duenpu
  * @ Date  :  00:19 2023/9/17
  */
-public class Q06_searchInsertPosition {
+public class Q06_搜索插入位置 {
     // 解法一：
     // 直接用原生方法
     public int searchInsert1(int[] nums, int target) {

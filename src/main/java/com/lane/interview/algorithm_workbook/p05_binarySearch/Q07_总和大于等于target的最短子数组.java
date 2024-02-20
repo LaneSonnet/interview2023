@@ -12,7 +12,7 @@ import java.util.Arrays;
  * @ Author:  duenpu
  * @ Date  :  23:35 2023/9/16
  */
-public class Q07_minSubarraySum {
+public class Q07_总和大于等于target的最短子数组 {
     /**
      * 我们申请一个临时数组 sums，其中 sums[i] 表示的是原数组 nums 前 i 个元素的和，
      * 题中说了 “给定一个含有 n 个 正整数 的数组”，既然是正整数，那么相加的和会越来越大，也就是sums数组中的元素是递增的。

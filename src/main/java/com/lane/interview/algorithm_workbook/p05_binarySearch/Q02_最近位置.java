@@ -4,7 +4,7 @@ package com.lane.interview.algorithm_workbook.p05_binarySearch;
  * @ Author:  duenpu
  * @ Date  :  23:44 2023/9/15
  */
-public class Q02_nearestIndex {
+public class Q02_最近位置 {
 
     //有序数组中满足>=value的最左位置
     //1112244445566777

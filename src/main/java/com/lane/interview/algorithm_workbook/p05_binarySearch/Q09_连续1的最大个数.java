@@ -4,7 +4,7 @@ package com.lane.interview.algorithm_workbook.p05_binarySearch;
  * @ Author:  duenpu
  * @ Date  :  13:45 2023/9/17
  */
-public class Q09_maxConsecutiveOnes {
+public class Q09_连续1的最大个数 {
     /**
      * 给定一个二进制数组 nums ， 计算其中最大连续 1 的个数。
      *

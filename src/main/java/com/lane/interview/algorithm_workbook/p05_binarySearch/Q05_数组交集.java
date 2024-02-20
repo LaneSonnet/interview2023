@@ -12,7 +12,7 @@ import java.util.Set;
  * @ Author:  duenpu
  * @ Date  :  00:10 2023/9/17
  */
-public class Q05_intersectionOfTwoArrays {
+public class Q05_数组交集 {
 
     /**
      * 二分查找不是最优解

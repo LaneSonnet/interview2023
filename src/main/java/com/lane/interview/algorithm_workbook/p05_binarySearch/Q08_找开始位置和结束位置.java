@@ -12,7 +12,7 @@ package com.lane.interview.algorithm_workbook.p05_binarySearch;
  * @ Author:  duenpu
  * @ Date  :  13:28 2023/9/17
  */
-public class Q08_findFirstAndLastPositionofElementinSortedArray {
+public class Q08_找开始位置和结束位置 {
 
     public int[] searchRange(int[] nums, int target) {
         int[] ans = new int[2];
