@@ -6,14 +6,18 @@ package com.lane.interview.interview.juc.threadlocal;
  */
 public class ThreadLocalTest {
     private static ThreadLocal<Integer> threadLocal = new ThreadLocal<>();
+    private static ThreadLocal<Integer> threadLocal1 = new ThreadLocal<>();
 
     public static void main(String[] args) {
         new Thread(() -> {
             try {
-                for (int i = 0;i < 100;i++) {
+                for (int i = 0;i < 10;i++) {
                     threadLocal.set(i);
+                    threadLocal1.set(i + 100);
                     System.out.println(Thread.currentThread().getName() + " threadLocal.get() = " + threadLocal.get());
+                    System.out.println(Thread.currentThread().getName() + " threadLocal111.get() = " + threadLocal1.get());
                     Thread.sleep(200);
+
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -22,18 +26,18 @@ public class ThreadLocalTest {
             }
         }, "Thread-A").start();
 
-        new Thread(() -> {
-            try {
-                for (int i = 0;i < 100;i++) {
-                    //threadLocal.set(i);
-                    System.out.println(Thread.currentThread().getName() + " threadLocal.get() = " + threadLocal.get());
-                    Thread.sleep(200);
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } finally {
-                threadLocal.remove();
-            }
-        }, "Thread-B").start();
+//        new Thread(() -> {
+//            try {
+//                for (int i = 0;i < 10;i++) {
+//                    //threadLocal.set(i);
+//                    System.out.println(Thread.currentThread().getName() + " threadLocal.get() = " + threadLocal.get());
+//                    Thread.sleep(200);
+//                }
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            } finally {
+//                threadLocal.remove();
+//            }
+//        }, "Thread-B").start();
     }
 }

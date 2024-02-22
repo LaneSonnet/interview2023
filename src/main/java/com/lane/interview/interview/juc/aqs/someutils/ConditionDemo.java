@@ -130,11 +130,36 @@ class MultipleConditionsExample {
             try {
                 for (int i = 0; i < 15; i++) {
                     example.consume();
-                    Thread.sleep(150); // 模拟消费时间
+                    Thread.sleep(100); // 模拟消费时间
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }).start();
+    }
+}
+
+class ConditionInterruptExample {
+    private static Lock lock = new ReentrantLock();
+    private static Condition condition = lock.newCondition();
+
+    public static void main(String[] args) throws InterruptedException {
+        Thread thread = new Thread(() -> {
+            lock.lock();
+            try {
+                System.out.println("线程启动，尝试获取锁");
+                condition.await();
+                System.out.println("线程被唤醒");
+            } catch (InterruptedException e) {
+                System.out.println("线程被中断");
+            } finally {
+                lock.unlock();
+            }
+        });
+        thread.start();
+
+        // 主线程等待一段时间后中断线程
+        Thread.sleep(1000);
+        thread.interrupt();
     }
 }
