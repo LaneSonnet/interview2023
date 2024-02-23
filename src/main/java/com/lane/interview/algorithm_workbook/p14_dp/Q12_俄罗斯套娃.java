@@ -21,7 +21,7 @@ public class Q12_俄罗斯套娃 {
 
             List<Integer> f = new ArrayList<>();
             f.add(envelopes[0][1]);
-            for (int i = 1; i < n; ++i) {
+            for (int i = 1; i < n; i++) {
                 int num = envelopes[i][1];
                 if (num > f.get(f.size() - 1)) {
                     f.add(num);
