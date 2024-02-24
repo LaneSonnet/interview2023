@@ -1,8 +1,6 @@
 package com.lane.interview.algorithm_workbook.p03_queue_stack;
 
 
-import com.lane.interview.algorithm.day2.Demo3_DoubleEndsQueueToStackAndQueue;
-
 /**
  * 双向链表实现队列和栈
  * 队列：FIFO  addFromHead  popFromBottom

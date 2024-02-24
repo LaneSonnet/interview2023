@@ -29,7 +29,7 @@ public class Q04_两个栈实现队列 {
         // push栈向pop栈倒入数据
         private void pushToPop() {
             // pop栈为空，把push栈全倒过来
-            if (stackPop.empty()) {
+            if (stackPop.isEmpty()) {
                 while (!stackPush.empty()) {
                     stackPop.push(stackPush.pop());
                 }
@@ -55,6 +55,45 @@ public class Q04_两个栈实现队列 {
             }
             pushToPop();
             return stackPop.peek();
+        }
+    }
+
+    // https://leetcode.cn/problems/implement-queue-using-stacks
+
+    class MyQueue {
+        Stack<Integer> pushStack;
+        Stack<Integer> popStack;
+        public MyQueue() {
+            this.pushStack = new Stack<>();
+            this.popStack = new Stack<>();
+        }
+
+        private void pushToPop () {
+            if (popStack.isEmpty()) {
+                while(!pushStack.isEmpty()) {
+                    popStack.push(pushStack.pop());
+                }
+            }
+        }
+
+        public void push(int x) {
+            pushStack.push(x);
+            pushToPop();
+        }
+
+        public int pop() {
+            pushToPop();
+            return popStack.pop();
+        }
+
+        public int peek() {
+            pushToPop();
+            return popStack.peek();
+        }
+
+        public boolean empty() {
+            pushToPop();
+            return popStack.isEmpty();
         }
     }
 }

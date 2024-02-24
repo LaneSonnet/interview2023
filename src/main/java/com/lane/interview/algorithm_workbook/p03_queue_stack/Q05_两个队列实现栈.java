@@ -58,4 +58,47 @@ public class Q05_两个队列实现栈 {
             return queue.isEmpty();
         }
     }
+
+
+    class MyStack {
+        Queue<Integer> queue;
+        Queue<Integer> help;
+        public MyStack() {
+            this.queue = new LinkedList<>();
+            this.help = new LinkedList<>();
+        }
+
+        public void push(int x) {
+            queue.add(x);
+        }
+
+        public int pop() {
+            while (queue.size() > 1) {
+                help.add(queue.poll());
+            }
+            int ans = queue.poll();
+            Queue<Integer> tmp = new LinkedList<>();
+            tmp = help;
+            help = queue;
+            queue = tmp;
+            return ans;
+        }
+
+        public int top() {
+            while (queue.size() > 1) {
+                help.add(queue.poll());
+            }
+            int ans = queue.poll();
+            help.add(ans);
+            Queue<Integer> tmp = new LinkedList<>();
+            tmp = help;
+            help = queue;
+            queue = tmp;
+            return ans;
+        }
+
+        public boolean empty() {
+            return queue.isEmpty();
+        }
+    }
 }
