@@ -1,8 +1,12 @@
 package com.lane.interview.interview.datastructure;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @ Author:  duenpu
@@ -38,12 +42,23 @@ public class test1 {
             System.out.println(entry.getValue());
         });
 
-        List<String> list = new ArrayList<>();
-        list.add(0,"000");
-        list.add(1,"111");
-        list.add(1,"222");
+        List<String> list = new ArrayList<>(10);
+        for (int i = 0;i <=50;i++) {
+            list.add(Integer.valueOf(i).toString());
+        }
         list.forEach(e -> {
             System.out.println(e);
         });
+
+        List<String> words = Arrays.asList("Hello", "World");
+
+        // 使用flatMap将每个字符串拆分为单词，并将所有单词合并为一个流
+        Stream<String> wordStream = words.stream().flatMap(str -> Arrays.stream(str.split("")));
+
+        // 将流中的元素收集为一个列表
+        List<String> letters = wordStream.collect(Collectors.toList());
+
+        // 输出结果
+        System.out.println(letters);
     }
 }

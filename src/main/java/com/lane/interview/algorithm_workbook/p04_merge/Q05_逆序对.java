@@ -4,7 +4,7 @@ package com.lane.interview.algorithm_workbook.p04_merge;
  *
  * 逆序对
  *
- * https://leetcode.cn/problems/reverse-pairs/description/
+ * https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/description/
  *
  * @author duenpu
  * @date 2024/1/24 20:08

@@ -20,7 +20,7 @@ public class Q04_归并排序 {
     }
 
     private static void process(int[] nums, int l, int r) {
-        if (l == r) {
+        if (l >= r) {
             return;
         }
         int m = l + ((r - l) >> 1);
