@@ -1,6 +1,7 @@
-package com.lane.interview.algorithm_workbook.p07_heap;
+package com.lane.interview.algorithm_workbook.p15_滑动窗口;
 
 import java.util.Comparator;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
 
 /**
@@ -16,9 +17,37 @@ import java.util.PriorityQueue;
  * @author duenpu
  * @date 2024/1/30 20:04
  */
-public class Q07_滑动窗口最大值 {
+public class Q02_滑动窗口最大值 {
 
     class Solution {
+
+        public int[] getMaxWindow(int[] arr, int w) {
+            // 边界
+            if (arr == null || w < 1 || arr.length < w) {
+                return null;
+            }
+            // qmax 窗口最大值的更新结构
+            // qmax里面放下标，为了记录每个值是否过期
+            LinkedList<Integer> qmax = new LinkedList<Integer>();
+            // 收集了几个数，N-w+1个，可以举个例子观察一下规律
+            int[] res = new int[arr.length - w + 1];
+            // 给res用，一个一个填好答案
+            int index = 0;
+            for (int R = 0; R < arr.length; R++) {
+                while (!qmax.isEmpty() && arr[qmax.peekLast()] <= arr[R]) {
+                    qmax.pollLast();
+                }
+                qmax.addLast(R);
+                if (qmax.peekFirst() == R - w) {
+                    qmax.pollFirst();
+                }
+                if (R >= w - 1) {
+                    res[index++] = arr[qmax.peekFirst()];
+                }
+            }
+            return res;
+        }
+
         public int[] maxSlidingWindow(int[] nums, int k) {
             int n = nums.length;
             PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {

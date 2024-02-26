@@ -28,12 +28,6 @@ public class Q01_随机快排 {
         }
 
         private int[] netherLandsFlag(int[] arr, int l, int r) {
-            if (l > r) {
-                return new int[] { -1, -1 };
-            }
-            if (l == r) {
-                return new int[] { l, r };
-            }
             int less = l - 1;
             int more = r;
             int index = l;

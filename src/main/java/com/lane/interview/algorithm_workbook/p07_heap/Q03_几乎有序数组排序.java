@@ -29,6 +29,26 @@ public class Q03_几乎有序数组排序 {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // for test
     public static void comparator(int[] arr, int k) {
         Arrays.sort(arr);

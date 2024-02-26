@@ -1,6 +1,4 @@
-package com.lane.interview.algorithm_workbook.p06_quickSort;
-
-import com.lane.interview.algorithm_workbook.p02_list.ListNode;
+package com.lane.interview.algorithm_workbook.p02_list;
 
 /**
  *
@@ -11,7 +9,7 @@ import com.lane.interview.algorithm_workbook.p02_list.ListNode;
  * @author duenpu
  * @date 2024/1/24 20:08
  */
-public class Q04_分隔链表 {
+public class Q12_partition分隔 {
     class Solution {
         public ListNode partition(ListNode head, int x) {
             if(head == null || head.next == null) {

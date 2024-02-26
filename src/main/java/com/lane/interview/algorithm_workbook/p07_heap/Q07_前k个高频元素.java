@@ -13,12 +13,16 @@ import java.util.PriorityQueue;
  * @author duenpu
  * @date 2024/1/30 20:04
  */
-public class Q08_前k个高频元素 {
+public class Q07_前k个高频元素 {
     class Solution {
         public int[] topKFrequent(int[] nums, int k) {
             HashMap<Integer, Integer> map = new HashMap<>();
             for(int n:nums){
-                map.put(n,map.getOrDefault(n,0)+1);
+                if(map.containsKey(n)) {
+                    map.put(n, map.get(n) + 1);
+                } else {
+                    map.put(n, 1);
+                }
             }
             //从大到小排序，这样后面取前k个元素就可以了
             PriorityQueue<Integer> pq = new PriorityQueue((e1, e2) -> map.get(e2) - map.get(e1));
