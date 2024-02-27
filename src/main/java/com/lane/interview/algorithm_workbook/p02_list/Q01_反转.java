@@ -74,9 +74,8 @@ public class Q01_反转 {
     // ------------------------------------------反转链表前N个节点------------------------------------------
 
     // 递归方式
-    ListNode pre = null;
-
     public ListNode reverseN(ListNode head, int n) {
+        ListNode pre = null;
         if (n == 1) {
             pre = head.next;
             return head;
@@ -200,15 +199,14 @@ public class Q01_反转 {
         return newHead;
     }
 
-    public ListNode reverse(ListNode head, ListNode tail){
-        ListNode prev =null;
-        ListNode cur = head;
-        //只需要把原来判断尾节点为空的，改为在传入节点就行。
-        while(cur !=tail){
-            ListNode next = cur.next;
-            cur.next = prev;
-            prev =cur;
-            cur = next;
+    public ListNode reverse(ListNode head, ListNode tail) {
+        ListNode prev = null;
+        ListNode next = null;
+        while (head != tail) {
+            next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
         }
         return prev;
     }

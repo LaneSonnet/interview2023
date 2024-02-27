@@ -1,6 +1,7 @@
 package com.lane.interview.algorithm_workbook.p08_sort;
 
 import com.lane.interview.algorithm.day2.Node;
+import com.lane.interview.algorithm_workbook.p02_list.ListNode;
 
 /**
  * @ Author:  duenpu
@@ -18,6 +19,12 @@ public class SwapUtil {
 
     public static void swapNode(Node[] nodeArr, int a, int b) {
         Node tmp = nodeArr[a];
+        nodeArr[a] = nodeArr[b];
+        nodeArr[b] = tmp;
+    }
+
+    public static void swapListNode(ListNode[] nodeArr, int a, int b) {
+        ListNode tmp = nodeArr[a];
         nodeArr[a] = nodeArr[b];
         nodeArr[b] = tmp;
     }

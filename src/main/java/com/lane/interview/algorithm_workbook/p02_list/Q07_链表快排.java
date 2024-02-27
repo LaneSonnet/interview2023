@@ -53,4 +53,33 @@ public class Q07_链表快排 {
             }
         }
     }
+
+    /**
+     *
+     * 分隔链表
+     *
+     * https://leetcode.cn/problems/partition-list/description/
+     */
+    public ListNode partition(ListNode head, int x) {
+        if(head == null || head.next == null) {
+            return head;
+        }
+        ListNode sH = new ListNode(0);
+        ListNode smallHead = sH;
+        ListNode bH = new ListNode(0);
+        ListNode bigHead = bH;
+        while (head != null) {
+            if (head.val < x) {
+                sH.next = head;
+                sH = sH.next;
+            } else {
+                bH.next = head;
+                bH = bH.next;
+            }
+            head = head.next;
+        }
+        bH.next = null;
+        sH.next = bigHead.next;
+        return smallHead.next;
+    }
 }

@@ -24,7 +24,7 @@ public class Q09_复制 {
         // key 老节点
         // value 新节点
         HashMap<Node,  Node> map = new HashMap< Node,  Node>();
-         Node cur = head;
+        Node cur = head;
         while (cur != null) {
             map.put(cur, new  Node(cur.value));
             cur = cur.next;
