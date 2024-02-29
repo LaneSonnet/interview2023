@@ -4,7 +4,7 @@ package com.lane.interview.algorithm_workbook.p05_binarySearch;
  * @ Author:  duenpu
  * @ Date  :  22:12 2024/2/19
  */
-public class Q11_搜索旋转排序数组 {
+public class Q11_旋转排序数组 {
     // https://leetcode.cn/problems/search-in-rotated-sorted-array
     class Solution {
         public int search(int[] nums, int target) {
@@ -37,5 +37,11 @@ public class Q11_搜索旋转排序数组 {
             }
             return nums[left] == target ? left : -1;
         }
+    }
+
+    // 寻找旋转排序数组中的最小值
+    // https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/description/?envType=study-plan-v2&envId=top-100-liked
+    public int findMin(int[] nums) {
+        return 0;
     }
 }
