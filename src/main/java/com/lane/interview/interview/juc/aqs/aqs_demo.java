@@ -12,6 +12,7 @@ public class aqs_demo {
     private static void increase() {
         ReentrantLock lock = new ReentrantLock();
         lock.lock();
+
         try {
             System.out.println("do something");
         } finally {
