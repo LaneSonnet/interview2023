@@ -55,7 +55,7 @@ public class Q07_总和大于等于target的最短子数组 {
         public int minSubArrayLen(int target, int[] nums) {
             int left = 0;
             int length = nums.length;
-            int result = length + 1;
+            int result = Integer.MAX_VALUE;
             int num = 0;
             for (int i = 0; i < length; i++) {
                 num += nums[i];
@@ -64,7 +64,7 @@ public class Q07_总和大于等于target的最短子数组 {
                     num -= nums[left++];
                 }
             }
-            return result == length + 1 ? 0 : result;
+            return result == Integer.MAX_VALUE ? 0 : result;
 
         }
     }

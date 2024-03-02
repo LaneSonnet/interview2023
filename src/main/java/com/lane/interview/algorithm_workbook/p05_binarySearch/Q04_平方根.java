@@ -25,26 +25,28 @@ public class Q04_平方根 {
      *
      */
     public static int mySqrt(int x) {
+        // 特殊值判断
         if (x == 0) {
             return 0;
         }
         if (x == 1) {
             return 1;
         }
-        int left = 1; // 不能除以0，从1开始
-        int right = x >> 1;
-        int mid = 1;
+        int left = 1;
+        int right = x / 2;
+        // 在区间 [left..right] 查找目标元素
         while (left < right) {
-            mid = left + ((right - left) >> 1);
-            if (mid == x / mid) { // 不能写成 mid * mid == x，乘法会溢出
-                return mid;
-            } else if (mid > x / mid) {
+            int mid = left + (right - left + 1) / 2;
+            // 注意：这里为了避免乘法溢出，改用除法
+            if (mid > x / mid) {
+                // 下一轮搜索区间是 [left..mid - 1]
                 right = mid - 1;
             } else {
-                left = mid + 1;
+                // 下一轮搜索区间是 [mid..right]
+                left = mid;
             }
         }
-        return left > x / left ? left - 1 : left; // 最后要判断left超没超，超的话left-1才是答案
+        return left;
     }
 
     public static void main(String[] args) {

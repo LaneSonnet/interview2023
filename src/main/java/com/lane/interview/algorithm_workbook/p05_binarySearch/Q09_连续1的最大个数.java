@@ -55,32 +55,24 @@ public class Q09_连续1的最大个数 {
      * https://leetcode.cn/problems/max-consecutive-ones-iii/solutions/608931/zui-da-lian-xu-1de-ge-shu-iii-by-leetcod-hw12/
      */
     class Solution {
-        public int longestOnes(int[] nums, int k) {
-            int n = nums.length;
-            int[] P = new int[n + 1];
-            for (int i = 1; i <= n; ++i) {
-                P[i] = P[i - 1] + (1 - nums[i - 1]);
-            }
-
-            int ans = 0;
-            for (int right = 0; right < n; ++right) {
-                int left = binarySearch(P, P[right + 1] - k);
-                ans = Math.max(ans, right - left + 1);
-            }
-            return ans;
-        }
-
-        public int binarySearch(int[] P, int target) {
-            int low = 0, high = P.length - 1;
-            while (low < high) {
-                int mid = (high - low) / 2 + low;
-                if (P[mid] < target) {
-                    low = mid + 1;
-                } else {
-                    high = mid;
+        public int longestOnes(int[] A, int K) {
+            int left = 0;//窗口左边的位置
+            int maxWindow = 0;//窗口的最大值
+            int zeroCount = 0;//窗口中0的个数
+            for (int right = 0; right < A.length; right++) {
+                if (A[right] == 0) {
+                    zeroCount++;
                 }
+                //如果窗口中0的个数超过了K，要缩小窗口的大小，直到0的个数不大于K位置
+                while (zeroCount > K) {
+                    if (A[left++] == 0) {
+                        zeroCount--;
+                    }
+                }
+                //记录最大的窗口
+                maxWindow = Math.max(maxWindow, right - left + 1);
             }
-            return low;
+            return maxWindow;
         }
     }
 }
