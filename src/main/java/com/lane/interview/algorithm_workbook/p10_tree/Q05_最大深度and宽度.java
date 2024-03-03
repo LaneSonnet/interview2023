@@ -84,36 +84,6 @@ public class Q05_最大深度and宽度 {
         }
     }
 
-    public int widthOfBinaryTree(TreeNode root) {
-        if (root == null) {
-            return 0;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-        TreeNode curEnd = root;
-        TreeNode nextEnd = null;
-        int max = 0;
-        int curNodeCount = 0;
-        while (!queue.isEmpty()) {
-            TreeNode cur = queue.poll();
-            if (cur.left != null) {
-                nextEnd = cur.left;
-                queue.add(cur.left);
-            }
-            if (cur.right != null) {
-                nextEnd = cur.right;
-                queue.add(cur.right);
-            }
-            curNodeCount++;
-            if (cur == curEnd) {
-                max = Math.max(max, curNodeCount);
-                curNodeCount = 0;
-                curEnd = nextEnd;
-            }
-        }
-        return max;
-    }
-
     // null值算数
     // https://leetcode.cn/problems/maximum-width-of-binary-tree/description/
 

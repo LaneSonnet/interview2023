@@ -1,4 +1,6 @@
-package com.lane.interview.algorithm_workbook.p05_binarySearch;
+package com.lane.interview.algorithm_workbook.p18_leetcode高频题;
+
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,7 +14,7 @@ import java.util.Set;
  * @ Author:  duenpu
  * @ Date  :  00:10 2023/9/17
  */
-public class Q05_数组交集 {
+public class Q09_数组交集 {
 
     // https://leetcode.cn/problems/intersection-of-two-arrays/
 

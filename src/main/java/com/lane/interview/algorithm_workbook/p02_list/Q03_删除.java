@@ -8,10 +8,10 @@ package com.lane.interview.algorithm_workbook.p02_list;
 import com.lane.interview.algorithm.day2.DoubleNode;
 import com.lane.interview.algorithm.day2.Node;
 
-
 public class Q03_删除 {
+}
+class a_删除指定元素 {
     // https://leetcode.cn/problems/remove-linked-list-elements/description/
-
     public ListNode removeElements1(ListNode head, int valueue) {
         while (head != null) {
             if (head.value != valueue) {
@@ -44,7 +44,8 @@ public class Q03_删除 {
             return head;
         }
     }
-
+}
+class b_删除指定元素_双链表 {
     public static DoubleNode removevalueue(DoubleNode head, int num) {
         // head来到第一个不需要删的位置
         while (head != null) {
@@ -90,14 +91,16 @@ public class Q03_删除 {
             return head;
         }
     }
+}
 
+class c_删除倒数第N个元素{
     // https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
         ListNode recordNode = new ListNode(0, head);
         ListNode fast = head;
         ListNode slow = recordNode;
-        for (int i = 0;i < n;i++) {
+        for (int i = 0; i < n; i++) {
             fast = fast.next;
         }
         while (fast != null) {
@@ -107,7 +110,8 @@ public class Q03_删除 {
         slow.next = slow.next.next;
         return recordNode.next;
     }
-
+}
+class d_去重{
     // https://leetcode.cn/problems/remove-duplicates-from-sorted-list/description/
 
     public ListNode deleteDuplicates(ListNode head) {
@@ -124,42 +128,42 @@ public class Q03_删除 {
         }
         return head;
     }
+}
 
+class e_去重_重复的元素都不要{
 
     // https://leetcode.cn/problems/remove-duplicates-from-sorted-list-ii/description/
 
-    public ListNode deleteDuplicatesPro(ListNode head) {
-        if(head==null || head.next==null) {
+    public ListNode deleteDuplicates1(ListNode head) {
+        if (head == null || head.next == null) {
             return head;
         }
-        ListNode dummy = new ListNode(-1);
-        dummy.next = head;
-        ListNode a = dummy;
-        ListNode b = head;
-        while(b!=null && b.next!=null) {
-            //初始化的时a指向的是哑结点，所以比较逻辑应该是a的下一个节点和b的下一个节点
-            if(a.next.value!=b.next.value) {
-                a = a.next;
-                b = b.next;
-            }
-            else {
-                //如果a、b指向的节点值相等，就不断移动b，直到a、b指向的值不相等
-                while(b!=null && b.next!=null && a.next.value==b.next.value) {
-                    b = b.next;
+        ListNode record = new ListNode(0);
+        record.next = head;
+        ListNode slow = record;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            if (slow.next.val == fast.next.val) {
+                while (fast != null && fast.next != null && slow.next.val == fast.next.val) {
+                    fast = fast.next;
                 }
-                a.next = b.next;
-                b = b.next;
+                slow.next = fast.next;
+                fast = fast.next;
+            } else {
+                slow = slow.next;
+                fast = fast.next;
             }
         }
-        return dummy.next;
+        return record.next;
     }
+}
 
-
+class f_删除节点神器{
     // https://leetcode.cn/problems/delete-node-in-a-linked-list/description/
 
     /*
-    * 对于本题，由于我们只知道待删除节点本身，同时该链表为单链表（无法访问前一节点），因此我们只能先将后一节点的值复制到当前节点，然后将后一节点当作「待删除节点」来进行常规删除。
-    * */
+     * 对于本题，由于我们只知道待删除节点本身，同时该链表为单链表（无法访问前一节点），因此我们只能先将后一节点的值复制到当前节点，然后将后一节点当作「待删除节点」来进行常规删除。
+     * */
     public void deleteNode(ListNode node) {
         node.val = node.next.val;
         node.next = node.next.next;

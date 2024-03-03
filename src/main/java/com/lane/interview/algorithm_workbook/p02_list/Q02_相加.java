@@ -104,31 +104,29 @@ public class Q02_相加 {
     public ListNode addTwoNumbersPro2(ListNode l1, ListNode l2) {
         l1 = reverseList(l1);
         l2 = reverseList(l2); // l1 和 l2 反转后，就变成【2. 两数相加】了
-        ListNode l3 = addTwo(l1, l2, 0);
+        ListNode l3 = process(l1, l2, 0);
         return reverseList(l3);
     }
 
     private ListNode reverseList(ListNode head) {
-        if (head == null || head.next == null)
+        if (head == null || head.next == null) {
             return head;
+        }
         ListNode newHead = reverseList(head.next);
         head.next.next = head; // 把下一个节点指向自己
         head.next = null; // 断开指向下一个节点的连接，保证最终链表的末尾节点的 next 是空节点
         return newHead;
     }
 
-    // l1 和 l2 为当前遍历的节点，carry 为进位
-    private ListNode addTwo(ListNode l1, ListNode l2, int carry) {
-        if (l1 == null && l2 == null) // 递归边界：l1 和 l2 都是空节点
-            return carry != 0 ? new ListNode(carry) : null; // 如果进位了，就额外创建一个节点
-        if (l1 == null) { // 如果 l1 是空的，那么此时 l2 一定不是空节点
-            l1 = l2;
-            l2 = null; // 交换 l1 与 l2，保证 l1 非空，从而简化代码
+    private ListNode process(ListNode l, ListNode r, int i) {
+        // base case
+        if (l == null && r == null && i == 0) {
+            return null;
         }
-        carry += l1.value + (l2 != null ? l2.value : 0); // 节点值和进位加在一起
-        l1.value = carry % 10; // 每个节点保存一个数位
-        l1.next = addTwo(l1.next, (l2 != null ? l2.next : null), carry / 10); // 进位
-        return l1;
+        int sum = ((l != null) ? l.value : 0) + ((r != null) ? r.value : 0) + i;
+        ListNode newNode = new ListNode(sum % 10);
+        newNode.next = dfs(((l != null) ? l.next : null), ((r != null) ? r.next : null), sum / 10);
+        return newNode;
     }
 
     // 写一个main方法检测add_two_numbers方法是否正确

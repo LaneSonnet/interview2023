@@ -1,10 +1,10 @@
-package com.lane.interview.algorithm_workbook.p14_dp;
+package com.lane.interview.algorithm_workbook.p18_leetcode高频题;
 
 /**
  * @ Author:  duenpu
  * @ Date  :  00:38 2024/2/26
  */
-public class Q17_最大子数组和 {
+public class Q12_最大子数组和 {
     // https://leetcode.cn/problems/maximum-subarray/description/?envType=study-plan-v2&envId=top-100-liked
     class Solution {
         public int maxSubArray(int[] nums) {
