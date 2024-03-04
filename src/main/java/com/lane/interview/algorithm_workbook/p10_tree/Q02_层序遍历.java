@@ -14,55 +14,8 @@ import java.util.Queue;
  * @ Date  :  22:08 2024/2/6
  */
 public class Q02_层序遍历 {
-
-    // 简单版本——不需要知道每一层，放在一起输出就行
-    public static void level(TreeNode head) {
-        if (head == null) {
-            return;
-        }
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(head);
-        while (!queue.isEmpty()) {
-            TreeNode cur = queue.poll();
-            System.out.println(cur.val);
-            if (cur.left != null) {
-                queue.add(cur.left);
-            }
-            if (cur.right != null) {
-                queue.add(cur.right);
-            }
-        }
-    }
-
     // 进阶版本——需要放到二维数组里
     class Solution {
-
-        // 迭代
-        public List<List<Integer>> levelOrder(TreeNode root) {
-            if (root == null) {
-                return new ArrayList<>();
-            }
-            List<List<Integer>> ans = new ArrayList<>();
-            LinkedList<TreeNode> queue = new LinkedList<>();
-            queue.add(root);
-            while (!queue.isEmpty()) {
-                int size = queue.size();
-                List<Integer> tmpRes = new ArrayList<>();
-                for (int i = 0; i < size; i++) {
-                    TreeNode tmp = queue.remove();
-                    tmpRes.add(tmp.val);
-                    if (tmp.left != null) {
-                        queue.add(tmp.left);
-                    }
-                    if (tmp.right != null) {
-                        queue.add(tmp.right);
-                    }
-                }
-                ans.add(tmpRes);
-            }
-            return ans;
-        }
-
         // 递归
         public List<List<Integer>> levelOrder1(TreeNode root) {
             List<List<Integer>> res = new ArrayList<>();
@@ -86,4 +39,33 @@ public class Q02_层序遍历 {
             }
         }
     }
+
+    /**
+     * 锯齿形层序遍历
+     */
+    class Solution1 {
+        public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+            List<List<Integer>> res = new ArrayList<>();
+            helper(res, root, 0);
+            return res;
+
+        }
+
+        private void helper(List<List<Integer>> res, TreeNode root, int depth) {
+            if (root == null) {
+                return;
+            }
+            if (res.size() == depth) {
+                res.add(new LinkedList<>());
+            }
+            if (depth % 2 == 0) {
+                res.get(depth).add(root.val);
+            } else {
+                res.get(depth).add(0, root.val);
+            }
+            helper(res, root.left, depth + 1);
+            helper(res, root.right, depth + 1);
+        }
+    }
+
 }
