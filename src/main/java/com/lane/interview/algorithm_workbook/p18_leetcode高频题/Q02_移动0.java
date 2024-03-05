@@ -1,4 +1,4 @@
-package com.lane.interview.algorithm_workbook.p06_quickSort;
+package com.lane.interview.algorithm_workbook.p18_leetcode高频题;
 
 /**
  * 移动0
@@ -16,7 +16,8 @@ public class Q02_移动0 {
             int index = 0;
             for (int num : nums) {
                 if (num != 0) {
-                    nums[index++] = num;
+                    nums[index] = num;
+                    index++;
                 }
             }
             while (index < nums.length) {

@@ -18,48 +18,6 @@ public class Q05_两个队列实现栈 {
      * 数据队列弹出数据,将数据队列中的数据导入辅助队列,直到数据队列中只剩一个数据
      * 将数据队列中的数据弹出,并将数据队列和辅助队列交换
      */
-    public static class TwoQueueStack<T> {
-        public Queue<T> queue;
-        public Queue<T> help;
-
-        public TwoQueueStack() {
-            this.queue = new LinkedList<>();
-            this.help = new LinkedList<>();
-        }
-
-        public void push(T value) {
-            queue.offer(value);
-        }
-
-        public T poll() {
-            while (queue.size() > 1) {
-                help.offer(queue.poll());
-            }
-            T ans = queue.poll();
-            Queue<T> tmp = queue;
-            queue = help;
-            help = tmp;
-            return ans;
-        }
-
-        public T peek() {
-            while (queue.size() > 1) {
-                help.offer(queue.poll());
-            }
-            T ans = queue.poll();
-            help.offer(ans);
-            Queue<T> tmp = queue;
-            queue = help;
-            help = tmp;
-            return ans;
-        }
-
-        public boolean isEmpty() {
-            return queue.isEmpty();
-        }
-    }
-
-
     class MyStack {
         Queue<Integer> queue;
         Queue<Integer> help;
