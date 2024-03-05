@@ -8,7 +8,9 @@ package com.lane.interview.algorithm_workbook.p02_list;
  * @date 2023/8/17 18:17
  */
 public class Q01_反转 {
+}
 
+class a_反转单链表{
     // ------------------------------------------反转单链表------------------------------------------
 
     // https://leetcode.cn/problems/reverse-linked-list/
@@ -54,7 +56,8 @@ public class Q01_反转 {
         head.next = null;
         return tmp;
     }
-
+}
+class b_反转双链表{
     // ------------------------------------------反转双链表------------------------------------------
 
     // 非递归方式
@@ -84,12 +87,13 @@ public class Q01_反转 {
         head.last = head.next;
         return tmp;
     }
+}
 
+class c_反转链表前N个节点{
     // ------------------------------------------反转链表前N个节点------------------------------------------
-
+    ListNode pre = null;
     // 递归方式
     public ListNode reverseN(ListNode head, int n) {
-        ListNode pre = null;
         if (n == 1) {
             pre = head.next;
             return head;
@@ -99,7 +103,9 @@ public class Q01_反转 {
         head.next = pre;
         return newHead;
     }
+}
 
+class d_反转链表一部分{
     // ------------------------------------------反转链表一部分------------------------------------------
     //https://leetcode.cn/problems/reverse-linked-list-ii
     // 递归方式
@@ -111,6 +117,20 @@ public class Q01_反转 {
         return head;
     }
 
+    private ListNode successor = null;
+    private ListNode reverseN(ListNode head, int n) {
+        if (n == 1) {
+            successor = head.next;
+            return head;
+        }
+        ListNode newHead = reverseN(head.next, n - 1);
+        head.next.next = head;
+        head.next = successor;
+        return newHead;
+    }
+}
+
+class e_K个一组反转链表{
     // ------------------------------------------K个一组反转链表------------------------------------------
     // 递归实现
     // https://leetcode.cn/problems/reverse-nodes-in-k-group/solutions/151616/di-gui-java-by-reedfan-2/
@@ -119,8 +139,8 @@ public class Q01_反转 {
             return null;
         }
         // 区间 [a, b) 包含 k 个待反转元素
-        ListNode a, b;
-        a = b = head;
+        ListNode a = head;
+        ListNode b = head;
         for (int i = 0; i < k; i++) {
             // 不足 k 个，不需要反转，base case
             if (b == null) {
@@ -146,7 +166,9 @@ public class Q01_反转 {
         }
         return prev;
     }
+}
 
+class f_两两一组反转链表{
     // ------------------------------------------两两一组反转链表------------------------------------------
     // https://leetcode.cn/problems/swap-nodes-in-pairs/
     class Solution {
