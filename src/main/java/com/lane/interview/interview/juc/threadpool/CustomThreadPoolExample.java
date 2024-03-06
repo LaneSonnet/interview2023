@@ -1,6 +1,4 @@
 package com.lane.interview.interview.juc.threadpool;
-import org.redisson.Redisson;
-import org.redisson.api.RLock;
 
 import java.util.concurrent.*;
 

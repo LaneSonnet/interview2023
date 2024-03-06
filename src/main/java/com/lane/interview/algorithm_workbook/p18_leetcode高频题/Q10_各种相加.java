@@ -9,6 +9,29 @@ import java.util.List;
  * @ Date  :  18:07 2024/3/3
  */
 public class Q10_各种相加 {
+    // 数组相加
+    public class Solution {
+        public int[] addArrays(int[] nums1, int[] nums2) {
+            int n = Math.max(nums1.length, nums2.length);
+            int[] result = new int[n];
+            int carry = 0;
+            for (int i = 0; i < n; i++) {
+                int sum = (i < nums1.length ? nums1[i] : 0) + (i < nums2.length ? nums2[i] : 0) + carry;
+                result[i] = sum % 10;
+                carry = sum / 10;
+            }
+            if (carry > 0) {
+                int[] newResult = new int[n + 1];
+                newResult[0] = carry;
+                for (int i = 1; i < n + 1; i++) {
+                    newResult[i] = result[i - 1];
+                }
+                return newResult;
+            }
+            return result;
+        }
+    }
+
     // 字符串相加
     // https://leetcode.cn/problems/add-strings/description/
     public String addStrings(String num1, String num2) {

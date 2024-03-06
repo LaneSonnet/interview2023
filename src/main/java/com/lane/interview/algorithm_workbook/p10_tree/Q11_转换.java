@@ -18,7 +18,6 @@ public class Q11_转换 {
         return process(nums, 0, nums.length - 1);
     }
 
-    // 二分法切割数组
     private TreeNode process(int[] nums, int left, int right) {
         if (left > right) {
             return null;

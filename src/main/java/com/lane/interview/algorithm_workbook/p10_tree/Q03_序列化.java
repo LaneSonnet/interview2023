@@ -1,9 +1,6 @@
 package com.lane.interview.algorithm_workbook.p10_tree;
 
-
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /**
@@ -14,16 +11,6 @@ import java.util.Queue;
  * @ Date  :  22:08 2024/2/6
  */
 public class Q03_序列化 {
-
-    /**
-     * Definition for a binary tree node.
-     * public class TreeNode {
-     * int val;
-     * TreeNode left;
-     * TreeNode right;
-     * TreeNode(int x) { val = x; }
-     * }
-     */
 
     public class Codec {
 
@@ -72,10 +59,4 @@ public class Q03_序列化 {
             return head;
         }
     }
-
-// Your Codec object will be instantiated and called as such:
-// Codec ser = new Codec();
-// Codec deser = new Codec();
-// TreeNode ans = deser.deserialize(ser.serialize(root));
-
 }

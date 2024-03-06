@@ -14,7 +14,6 @@ import java.util.Queue;
  * @ Date  :  22:08 2024/2/6
  */
 public class Q02_层序遍历 {
-    // 进阶版本——需要放到二维数组里
     class Solution {
         // 递归
         public List<List<Integer>> levelOrder1(TreeNode root) {

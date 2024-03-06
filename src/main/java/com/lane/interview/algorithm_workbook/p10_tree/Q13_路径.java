@@ -62,13 +62,14 @@ public class Q13_路径 {
         //中都要新建一个subList
         List<Integer> subList = new ArrayList<>(list);
         //把当前节点值加入到subList中
-        subList.add(new Integer(root.val));
+        subList.add(root.val);
         //如果到达叶子节点，就不能往下走了，直接return
         if (root.left == null && root.right == null) {
             //如果到达叶子节点，并且sum等于叶子节点的值，说明我们找到了一组，
             //要把它放到result中
-            if (sum == root.val)
+            if (sum == root.val) {
                 result.add(subList);
+            }
             //到叶子节点之后直接返回，因为在往下就走不动了
             return;
         }
