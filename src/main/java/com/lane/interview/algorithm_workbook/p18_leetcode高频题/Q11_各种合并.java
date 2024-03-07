@@ -57,6 +57,7 @@ public class Q11_各种合并 {
         return mergeList.toArray(new int[mergeList.size()][]);
     }
 
+    // 合并链表
     // https://leetcode.cn/problems/merge-two-sorted-lists/description/
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) {
@@ -68,13 +69,13 @@ public class Q11_各种合并 {
         if (l1.val < l2.val) {
             l1.next = mergeTwoLists(l1.next, l2);
             return l1;
-        }
-        else {
+        } else {
             l2.next = mergeTwoLists(l1, l2.next);
             return l2;
         }
 
     }
+
     // https://leetcode.cn/problems/merge-k-sorted-lists/description/
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists.length == 0) {
