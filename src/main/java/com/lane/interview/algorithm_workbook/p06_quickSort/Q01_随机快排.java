@@ -53,5 +53,4 @@ public class Q01_随机快排 {
             arr[a] = arr[a] ^ arr[b];
         }
     }
-
 }

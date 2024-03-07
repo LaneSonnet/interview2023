@@ -112,4 +112,58 @@ public class Q10_各种相加 {
         }
         return pre;
     }
+    // 链表相减
+    public ListNode subtract(ListNode num1, ListNode num2) {
+        int len1 = getLength(num1);
+        int len2 = getLength(num2);
+
+        // 补0，使得两个链表等长
+        if (len1 < len2) {
+            num1 = addZeros(num1, len2 - len1);
+        } else if (len1 > len2) {
+            num2 = addZeros(num2, len1 - len2);
+        }
+
+        ListNode result = new ListNode(0);
+        ListNode current = result;
+
+        // 相减操作
+        while (num1 != null && num2 != null) {
+            int diff = num1.val - num2.val;
+
+            if (diff >= 0) {
+                current.next = new ListNode(diff);
+            } else {
+                num1.val += 10;
+                current.next = new ListNode(num1.val - num2.val);
+            }
+
+            current = current.next;
+            num1 = num1.next;
+            num2 = num2.next;
+        }
+        // 去掉前面多余的0
+        result = result.next;
+        // 返回结果链表
+        return result;
+    }
+
+    private int getLength(ListNode node) {
+        int length = 0;
+        while (node != null) {
+            length++;
+            node = node.next;
+        }
+        return length;
+    }
+
+    private ListNode addZeros(ListNode node, int zeros) {
+        while (zeros > 0) {
+            ListNode zeroNode = new ListNode(0);
+            zeroNode.next = node;
+            node = zeroNode;
+            zeros--;
+        }
+        return node;
+    }
 }

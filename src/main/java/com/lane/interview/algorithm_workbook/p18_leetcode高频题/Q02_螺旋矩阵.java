@@ -16,6 +16,7 @@ public class Q02_螺旋矩阵 {
             circle(mat, 0, 0, m - 1, n - 1, ans);
             return ans;
         }
+
         // 遍历 以 (x1, y1) 作为左上角，(x2, y2) 作为右下角形成的「圈」
         void circle(int[][] mat, int x1, int y1, int x2, int y2, List<Integer> ans) {
             if (x2 < x1 || y2 < y1) return;
@@ -53,32 +54,48 @@ public class Q02_螺旋矩阵 {
 
     // https://leetcode.cn/problems/spiral-matrix-ii/description/
 
-    class Solution2 {
-        public int[][] generateMatrix(int n) {
-            int[][] ans = new int[n][n];
-            circle(0, 0, n - 1, n - 1, 1, ans);
-            return ans;
+    public int[][] generateMatrix(int m, int n, int start) {
+        int[][] ans = new int[m][n];
+        circle(0, 0, m - 1, n - 1, start, ans);
+        return ans;
+    }
+    private static void circle(int x1, int y1, int x2, int y2, int start, int[][] ans) {
+        // basecase
+        if (x2 < x1 || y2 < y1) {
+            return;
         }
-        void circle(int x1, int y1, int x2, int y2, int start, int[][] ans) {
-            if (x2 < x1 || y2 < y1) return ;
-            if (x1 == x2) {
-                ans[x1][y1] = start;
-                return;
+        // 边界 只剩下一行
+        if (x1 == x2) {
+            for (int i = y1;i <= y2;i++) {
+                ans[x1][i] = start++;
             }
-            int val = start;
-            for (int i = y1; i < y2; i++) {
-                ans[x1][i] = val++;
-            }
-            for (int i = x1; i < x2; i++) {
-                ans[i][y2] = val++;
-            }
-            for (int i = y2; i > y1; i--) {
-                ans[x2][i] = val++;
-            }
-            for (int i = x2; i > x1; i--) {
-                ans[i][y1] = val++;
-            }
-            circle(x1 + 1, y1 + 1, x2 - 1, y2 - 1, val, ans);
+            return;
         }
+        // 边界 只剩下一列
+        if (y1 == y2) {
+            for (int i = x1;i <= x2;i++) {
+                ans[i][y1] = start++;
+            }
+            return;
+        }
+        int val= start;
+        // 左→右
+        for (int i = y1;i < y2;i++) {
+            ans[x1][i] = val++;
+        }
+        // 上→下
+        for (int i = x1;i < x2;i++) {
+            ans[i][y2] = val++;
+        }
+        // 右→左
+        for (int i = y2;i > y1;i--) {
+            ans[x2][i] = val++;
+        }
+        // 下→上
+        for (int i = x2;i > x1;i--) {
+            ans[i][y1] = val++;
+        }
+        // 递归下一圈
+        circle(x1 + 1, y1 + 1, x2 - 1, y2 - 1, val, ans);
     }
 }
