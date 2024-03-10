@@ -5,7 +5,6 @@ package com.lane.interview.algorithm_workbook.p10_tree;
  * @ Date  :  21:11 2024/2/6
  */
 public class TreeNode {
-
     public int val;
     public TreeNode left;
     public TreeNode right;

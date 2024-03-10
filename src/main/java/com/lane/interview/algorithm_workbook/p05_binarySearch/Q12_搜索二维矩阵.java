@@ -9,7 +9,6 @@ public class Q12_搜索二维矩阵 {
     class Solution {
         public boolean searchMatrix(int[][] mat, int t) {
             int m = mat.length, n = mat[0].length;
-
             // 第一次二分：定位到所在行（从上往下，找到最后一个满足 mat[x]][0] <= t 的行号）
             int l = 0, r = m - 1;
             while (l < r) {
@@ -20,7 +19,6 @@ public class Q12_搜索二维矩阵 {
                     r = mid - 1;
                 }
             }
-
             int row = r;
             if (mat[row][0] == t) {
                 return true;
@@ -28,7 +26,6 @@ public class Q12_搜索二维矩阵 {
             if (mat[row][0] > t) {
                 return false;
             }
-
             // 第二次二分：从所在行中定位到列（从左到右，找到最后一个满足 mat[row][x] <= t 的列号）
             l = 0; r = n - 1;
             while (l < r) {
