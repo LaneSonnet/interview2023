@@ -12,7 +12,6 @@ public class Q05_最大深度and宽度 {
      * https://leetcode.cn/problems/maximum-depth-of-binary-tree/description/
      *
      * */
-
     class Solution {
         public int maxDepth(TreeNode root) {
             return process1(root);
@@ -30,13 +29,11 @@ public class Q05_最大深度and宽度 {
             return Math.max(left, right) + 1;
         }
     }
-
     /*
      * 最小深度
      * https://leetcode.cn/problems/minimum-depth-of-binary-tree
      *
      * */
-
     class Solution1 {
         public int minDepth(TreeNode root) {
             return process1(root);
@@ -54,9 +51,7 @@ public class Q05_最大深度and宽度 {
             return Math.min(left, right) + 1;
         }
     }
-
     // N叉树最大深度
-
     public int maxDepth(Q04_N叉树转二叉树.Node root) {
         if (root == null) {
             return 0;
@@ -68,15 +63,11 @@ public class Q05_最大深度and宽度 {
         }
         return max + 1;
     }
-
-
     /*
      * 最大宽度
      *
      * */
-
     // null值不算数
-
     public int widthOfBinaryTree1(TreeNode root) {
         if (root == null) {
             return 0;
@@ -98,10 +89,8 @@ public class Q05_最大深度and宽度 {
             process2(root.right, index + 1, nodeArr);
         }
     }
-
     // null值算数
     // https://leetcode.cn/problems/maximum-width-of-binary-tree/description/
-
     class Solution2 {
         Map<Integer, Integer> levelMin = new HashMap<Integer, Integer>();
 
@@ -124,3 +113,14 @@ public class Q05_最大深度and宽度 {
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+

@@ -32,7 +32,7 @@ public class Q13_路径 {
         process(root.right, path + root.val + "->", ans);
     }
 
-    // 路径总和1
+    // 路径总和1-有没有
     // https://leetcode.cn/problems/path-sum/description/
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) {
@@ -44,7 +44,7 @@ public class Q13_路径 {
         return hasPathSum(root.left, targetSum - root.val) || hasPathSum(root.right, targetSum - root.val);
     }
 
-    // 路径总和2
+    // 路径总和2-找路径
     // https://leetcode.cn/problems/path-sum-ii/description/
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> result = new ArrayList<>();
@@ -79,7 +79,7 @@ public class Q13_路径 {
         dfs(root.right, sum - root.val, subList, result);
     }
 
-    // 路径总和3
+    // 路径总和3-不从根节点往下走
     // https://leetcode.cn/problems/path-sum-iii/description/?envType=study-plan-v2&envId=top-100-liked
     class Solution1 {
         public int pathSum(TreeNode root, int sum) {
@@ -106,12 +106,10 @@ public class Q13_路径 {
     // https://leetcode.cn/problems/binary-tree-maximum-path-sum/description/?envType=study-plan-v2&envId=top-100-liked
     class Solution2 {
         int pathSum = Integer.MIN_VALUE;
-
         public int maxPathSum(TreeNode root) {
             dfs(root);
             return pathSum;
         }
-
         // dfs 返回以该节点为端点的最大路径和
         public int dfs(TreeNode node) {
             if (node == null) {

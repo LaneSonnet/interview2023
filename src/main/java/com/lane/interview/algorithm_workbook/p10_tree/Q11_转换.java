@@ -60,9 +60,7 @@ public class Q11_转换 {
         }
         process3(root);
     }
-
     TreeNode pre = null;
-
     /*
     * 右→左→头  这样不会打乱指针
     * 从后往前一个节点一个节点改

@@ -16,7 +16,6 @@ public class Q04_最低公共祖先 {
         public boolean findA;
         public boolean findB;
         public TreeNode ans;
-
         public Info(boolean fA, boolean fB, TreeNode an) {
             findA = fA;
             findB = fB;
