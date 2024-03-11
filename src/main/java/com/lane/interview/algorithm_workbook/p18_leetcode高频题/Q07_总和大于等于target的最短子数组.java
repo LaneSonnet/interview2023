@@ -31,4 +31,23 @@ public class Q07_总和大于等于target的最短子数组 {
 
         }
     }
+
+    // 总和小于等于target的最长子数组
+    public int maxSubArrayLen(int[] nums, int target) {
+        int left = 0;
+        int sum = 0;
+        int maxLength = 0;
+        for (int right = 0; right < nums.length; right++) {
+            sum += nums[right];
+            while (sum > target) {
+                sum -= nums[left++];
+            }
+            if (sum <= target) {
+                maxLength = Math.max(maxLength, right - left + 1);
+            }
+        }
+        return maxLength;
+    }
+
+
 }

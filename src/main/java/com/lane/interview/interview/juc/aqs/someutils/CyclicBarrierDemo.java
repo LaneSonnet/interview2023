@@ -1,6 +1,5 @@
 package com.lane.interview.interview.juc.aqs.someutils;
 
-import org.slf4j.MDC;
 
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;

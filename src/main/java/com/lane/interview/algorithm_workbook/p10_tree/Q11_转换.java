@@ -1,5 +1,7 @@
 package com.lane.interview.algorithm_workbook.p10_tree;
 
+import com.lane.interview.algorithm_workbook.p02_list.ListNode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,5 +76,36 @@ public class Q11_转换 {
         root.right = pre;
         root.left = null;
         pre = root;
+    }
+
+    // 二叉树转双向有序链表
+    // https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
+    class Solution {
+        TreeNode pre, head;
+
+        public TreeNode treeToDoublyList(TreeNode root) {
+            if (root == null) {
+                return null;
+            }
+            inOrder(root);
+            head.left = pre;
+            pre.right = head;
+            return head;
+        }
+
+        private void inOrder(TreeNode cur) {
+            if (cur == null) {
+                return;
+            }
+            inOrder(cur.left);
+            if (pre == null) {
+                head = cur;
+            } else {
+                pre.right = cur;
+            }
+            cur.left = pre;
+            pre = cur;
+            inOrder(cur.right);
+        }
     }
 }
