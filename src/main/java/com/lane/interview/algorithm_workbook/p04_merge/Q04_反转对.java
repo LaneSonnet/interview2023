@@ -2,7 +2,7 @@ package com.lane.interview.algorithm_workbook.p04_merge;
 
 /**
  *
- * 反转对
+ * 反转对(左>右的二倍)
  * https://leetcode.cn/problems/reverse-pairs/description/
  *
  * @author duenpu
