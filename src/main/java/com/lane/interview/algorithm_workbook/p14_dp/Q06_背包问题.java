@@ -5,14 +5,12 @@ package com.lane.interview.algorithm_workbook.p14_dp;
  * @ Date  :  21:16 2024/2/16
  */
 public class Q06_背包问题 {
-
     /**
      * 背包问题
      * 问题描述：
      * 有一个背包，容量为bag，现在有n个物品，第i个物品的重量为w[i]，价值为v[i]，
      * 求将哪些物品装入背包可使价值总和最大。
      */
-
     // 暴力递归
     public static int maxValue(int[] w, int[] v, int bag) {
         if (w == null || v == null || w.length != v.length || w.length == 0) {

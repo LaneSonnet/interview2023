@@ -10,7 +10,6 @@ import java.util.Map;
 public class Q13_和为K的子数组 {
     // https://leetcode.cn/problems/subarray-sum-equals-k/description/?envType=study-plan-v2&envId=top-100-liked
     class Solution {
-
         public int subarraySum(int[] nums, int k) {
             // key：前缀和，value：key 对应的前缀和的个数
             Map<Integer, Integer> preSumFreq = new HashMap<>();

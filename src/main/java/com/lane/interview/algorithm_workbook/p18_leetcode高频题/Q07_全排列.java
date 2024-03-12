@@ -8,6 +8,7 @@ import java.util.List;
  * @ Date  :  23:45 2024/3/2
  */
 public class Q07_全排列 {
+    // 数组全排列
     // https://leetcode.cn/problems/permutations/
     class Solution {
         public List<List<Integer>> permute(int[] nums) {

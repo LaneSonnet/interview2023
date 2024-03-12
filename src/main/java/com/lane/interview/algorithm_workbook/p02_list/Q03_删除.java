@@ -96,7 +96,8 @@ class b_删除指定元素_双链表 {
 class c_删除倒数第N个元素{
     // https://leetcode.cn/problems/remove-nth-node-from-end-of-list/description/
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode recordNode = new ListNode(0, head);
+        ListNode recordNode = new ListNode(0);
+        recordNode.next = head;
         ListNode fast = head;
         ListNode slow = recordNode;
         for (int i = 0; i < n; i++) {

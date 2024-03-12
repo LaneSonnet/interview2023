@@ -6,7 +6,7 @@ import java.util.Stack;
  * @author duenpu
  * @date 2024/3/6 16:25
  */
-public class Q07_验证栈和序列 {
+public class Q07_验证栈序列 {
     // https://leetcode.cn/problems/validate-stack-sequences
     class Solution {
         public boolean validateStackSequences(int[] pushed, int[] popped) {

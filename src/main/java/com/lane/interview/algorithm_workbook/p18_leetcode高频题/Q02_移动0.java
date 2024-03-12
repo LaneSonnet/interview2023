@@ -2,6 +2,7 @@ package com.lane.interview.algorithm_workbook.p18_leetcode高频题;
 
 /**
  * 移动0
+ * 将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序
  * https://leetcode.cn/problems/move-zeroes/
  *
  * @author duenpu

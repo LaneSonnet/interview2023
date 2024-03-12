@@ -13,7 +13,6 @@ import java.util.Arrays;
  * @ Date  :  23:35 2023/9/16
  */
 public class Q07_总和大于等于target的最短子数组 {
-
     class Solution {
         public int minSubArrayLen(int target, int[] nums) {
             int left = 0;
@@ -31,7 +30,6 @@ public class Q07_总和大于等于target的最短子数组 {
 
         }
     }
-
     // 总和小于等于target的最长子数组
     public int maxSubArrayLen(int[] nums, int target) {
         int left = 0;

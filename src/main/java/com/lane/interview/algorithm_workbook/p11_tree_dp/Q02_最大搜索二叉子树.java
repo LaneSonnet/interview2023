@@ -10,22 +10,6 @@ public class Q02_最大搜索二叉子树 {
 
     // 返回子树的节点数量
     // https://leetcode.cn/problems/largest-bst-subtree/description/
-
-    /**
-     * Definition for a binary tree node.
-     * public class TreeNode {
-     * int val;
-     * TreeNode left;
-     * TreeNode right;
-     * TreeNode() {}
-     * TreeNode(int val) { this.val = val; }
-     * TreeNode(int val, TreeNode left, TreeNode right) {
-     * this.val = val;
-     * this.left = left;
-     * this.right = right;
-     * }
-     * }
-     */
     class Solution {
         public int largestBSTSubtree(TreeNode root) {
             if (root == null) {

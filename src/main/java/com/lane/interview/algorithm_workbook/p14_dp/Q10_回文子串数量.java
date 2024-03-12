@@ -6,7 +6,6 @@ package com.lane.interview.algorithm_workbook.p14_dp;
  */
 public class Q10_回文子串数量 {
     // https://leetcode.cn/problems/palindromic-substrings/
-
     class Solution {
         public int countSubstrings(String s) {
             char[] chars = s.toCharArray();
