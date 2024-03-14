@@ -78,21 +78,36 @@ public class Q11_旋转排序数组 {
     }
 
     // 有重复元素，求最小值
-    class Solution3 {
-        public int findMin(int[] nums) {
-            int left = 0;
-            int right = nums.length - 1;
-            while (left < right) {
-                int mid = left + (right - left) / 2;
-                if (nums[mid] > nums[right]) {
-                    left = mid + 1;
-                } else if (nums[mid] < nums[right]) {
-                    right = mid;
-                } else {
-                    right--;
-                }
+    public int findMin1(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > nums[right]) {
+                left = mid + 1;
+            } else if (nums[mid] < nums[right]) {
+                right = mid;
+            } else {
+                right--;
             }
-            return nums[left];
         }
+        return nums[left];
     }
+    // 有重复元素，求最大值
+    public static int findMax1(int[] nums) {
+        int left = 0;
+        int right = nums.length - 1;
+        while (left < right) {
+            int mid = left + ((right - left + 1) >> 1);
+            if (nums[left] > nums[mid]) {
+                right = mid - 1;
+            } else if (nums[mid] > nums[left]) {
+                left = mid;
+            } else {
+                left++;
+            }
+        }
+        return nums[right];
+    }
+
 }

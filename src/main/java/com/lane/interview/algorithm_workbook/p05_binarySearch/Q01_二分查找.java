@@ -9,7 +9,7 @@ package com.lane.interview.algorithm_workbook.p05_binarySearch;
  * @ Date  :  23:31 2023/9/15
  */
 public class Q01_二分查找 {
-    public static int search(int[] nums, int target) {
+    public int search(int[] nums, int target) {
         if (nums == null || nums.length == 0) {
             return -1;
         }

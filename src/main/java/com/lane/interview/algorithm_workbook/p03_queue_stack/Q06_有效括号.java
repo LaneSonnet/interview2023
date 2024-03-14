@@ -7,6 +7,7 @@ import java.util.*;
  * @ Date  :  00:47 2024/2/22
  */
 public class Q06_有效括号 {
+    // 括号是否有效
     // https://leetcode.cn/problems/valid-parentheses
     class Solution {
         public boolean isValid(String s) {
@@ -38,6 +39,7 @@ public class Q06_有效括号 {
         }
     }
 
+    // 生成n组括号
     // https://leetcode.cn/problems/generate-parentheses/description/
     class Solution1 {
         List<String> res = new ArrayList<>();
@@ -60,4 +62,32 @@ public class Q06_有效括号 {
             }
         }
     }
+
+    // 移除无效括号
+    // https://leetcode.cn/problems/minimum-remove-to-make-valid-parentheses/description/
+    public String minRemoveToMakeValid(String s) {
+        Stack<Integer> bracketIndex = new Stack<>();
+        boolean[] invalidIndex = new boolean[s.length()];
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == '(') {
+                bracketIndex.push(i);
+                invalidIndex[i] = true;
+            }
+            if (s.charAt(i) == ')') {
+                if (bracketIndex.empty()) {
+                    invalidIndex[i] = true;
+                } else {
+                    invalidIndex[bracketIndex.pop()] = false;
+                }
+            }
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (!invalidIndex[i]) {
+                result.append(s.charAt(i));
+            }
+        }
+        return result.toString();
+    }
+
 }
