@@ -8,7 +8,6 @@ import java.util.Map;
  * @ Date  :  21:54 2024/2/26
  */
 public class Q04_最长连续子序列 {
-
     // https://leetcode.cn/problems/longest-consecutive-sequence
     class UnionFind {
         // 记录每个节点的父节点

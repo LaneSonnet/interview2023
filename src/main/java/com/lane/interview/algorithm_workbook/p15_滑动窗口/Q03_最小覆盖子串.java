@@ -4,6 +4,13 @@ package com.lane.interview.algorithm_workbook.p15_滑动窗口;
 import java.util.HashMap;
 
 /**
+ *
+ * 示例 1：
+ *
+ * 输入：s = "ADOBECODEBANC", t = "ABC"
+ * 输出："BANC"
+ * 解释：最小覆盖子串 "BANC" 包含来自字符串 t 的 'A'、'B' 和 'C'。
+ *
  * @ Author:  duenpu
  * @ Date  :  23:21 2024/3/4
  */

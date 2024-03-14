@@ -6,7 +6,6 @@ package com.lane.interview.algorithm_workbook.p10_tree;
  */
 public class Q07_翻转 {
     // https://leetcode.cn/problems/invert-binary-tree
-
     class Solution {
         public TreeNode invertTree(TreeNode root) {
             //递归函数的终止条件，节点为空时返回

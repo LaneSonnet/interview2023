@@ -14,7 +14,6 @@ public class Q03_最长距离 {
     public int maxDistance(TreeNode head) {
         return process(head).maxDistance;
     }
-
     /*
      * 分情况讨论
      * ①最大距离经过root
@@ -23,11 +22,9 @@ public class Q03_最长距离 {
      * ②最大距离不经过root
      * 最大距离 = 左子树最大距离&右子树最大距离 二者取最大
      * */
-
     /*
      * 收集信息：最大距离，高度
      * */
-
     public class Info {
         int maxDistance;
         int height;

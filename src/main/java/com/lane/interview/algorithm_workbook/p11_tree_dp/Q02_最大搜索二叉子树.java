@@ -7,7 +7,6 @@ import com.lane.interview.algorithm_workbook.p10_tree.TreeNode;
  * @ Date  :  21:36 2024/2/10
  */
 public class Q02_最大搜索二叉子树 {
-
     // 返回子树的节点数量
     // https://leetcode.cn/problems/largest-bst-subtree/description/
     class Solution {
@@ -17,7 +16,6 @@ public class Q02_最大搜索二叉子树 {
             }
             return process(root).maxBSTSize;
         }
-
         /*
          * 收集4个信息
          * 最大搜索子树大小
@@ -38,7 +36,6 @@ public class Q02_最大搜索二叉子树 {
                 this.allSize = d;
             }
         }
-
         /*
          * 1.当X不为头结点时
          * ① X左子树的最大搜索子树的大小是答案
@@ -99,9 +96,7 @@ public class Q02_最大搜索二叉子树 {
             int maxBSTSize = Math.max(p1, Math.max(p2, p3));
             return new Info(maxBSTSize, max, min, allSize);
         }
-
     }
-
     // 返回子树的头结点
     // 思路和上面一样，收集信息里面多一个头结点，不用看高度
     public TreeNode largestBSTSubtree(TreeNode root) {
@@ -131,7 +126,6 @@ public class Q02_最大搜索二叉子树 {
             this.maxBSTSize = d;
         }
     }
-
     /*
      * 1.当X不为头结点时
      * ① X左子树的最大搜索子树的头结点是答案
@@ -179,5 +173,4 @@ public class Q02_最大搜索二叉子树 {
         }
         return new Info(maxBSTHead, maxBSTSize, min, max);
     }
-
 }

@@ -10,7 +10,6 @@ import java.util.List;
  * @ Date  :  21:02 2024/2/11
  */
 public class Q03_岛屿数量 {
-
     //https://leetcode.cn/problems/number-of-islands/description/
     public int numIslands(char[][] grid) {
         int row = grid.length;
@@ -109,7 +108,6 @@ public class Q03_岛屿数量 {
     }
 
     //https://leetcode.cn/problems/number-of-islands-ii/description/
-
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
         UnionFind2 uf = new UnionFind2(m, n);
         List<Integer> ans = new ArrayList<>();

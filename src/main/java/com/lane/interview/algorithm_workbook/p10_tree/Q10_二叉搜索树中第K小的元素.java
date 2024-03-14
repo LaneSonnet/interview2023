@@ -7,7 +7,6 @@ import java.util.PriorityQueue;
  * @ Date  :  00:24 2024/2/29
  */
 public class Q10_二叉搜索树中第K小的元素 {
-
     // https://leetcode.cn/problems/kth-smallest-element-in-a-bst/description/?envType=study-plan-v2&envId=top-100-liked
     int num = 0;
     int res;
