@@ -32,6 +32,89 @@ public class Q10_各种相加 {
         }
     }
 
+    // 数组相减
+    public static String subtractArrays(int[] num1, int[] num2) {
+        // 判断两个大数的大小关系，确保被减数大于等于减数
+        boolean negative = false;
+        if (compare(num1, num2) < 0) {
+            // 交换被减数和减数的位置，并执行相减操作
+            negative = true;
+            int[] temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+
+        int len1 = num1.length;
+        int len2 = num2.length;
+        int[] result = new int[len1];
+
+        int carry = 0; // 进位标志
+
+        // 从低位到高位逐位相减
+        for (int i = 0; i < len1; i++) {
+            int digit1 = num1[i];
+            int digit2 = i < len2 ? num2[i] : 0;
+
+            int diff = digit1 - digit2 - carry;
+            if (diff < 0) {
+                diff += 10;
+                carry = 1;
+            } else {
+                carry = 0;
+            }
+
+            result[i] = diff;
+        }
+
+        // 计算结果的有效位数
+        int significantDigits = len1;
+        for (int i = len1 - 1; i >= 0; i--) {
+            if (result[i] != 0) {
+                break;
+            }
+            significantDigits--;
+        }
+
+        // 如果结果数组中有前导零，则复制到一个新数组中去除前导零
+        if (significantDigits < len1) {
+            int[] trimmedResult = new int[significantDigits];
+            System.arraycopy(result, 0, trimmedResult, 0, significantDigits);
+            result = trimmedResult;
+        }
+
+        // 构建结果字符串
+        StringBuilder sb = new StringBuilder();
+        if (negative) {
+            sb.append('-');
+        }
+        for (int digit : result) {
+            sb.append(digit);
+        }
+
+        // 如果结果字符串为空，表示结果为0
+        if (sb.length() == 0) {
+            sb.append('0');
+        }
+
+        return sb.toString();
+    }
+
+    // 辅助方法，比较两个大数的大小关系
+    private static int compare(int[] num1, int[] num2) {
+        int len1 = num1.length;
+        int len2 = num2.length;
+        if (len1 != len2) {
+            return len1 - len2;
+        } else {
+            for (int i = len1 - 1; i >= 0; i--) {
+                if (num1[i] != num2[i]) {
+                    return num1[i] - num2[i];
+                }
+            }
+            return 0;
+        }
+    }
+
     // 字符串相加
     // https://leetcode.cn/problems/add-strings/description/
     public String addStrings(String num1, String num2) {
@@ -112,6 +195,7 @@ public class Q10_各种相加 {
         }
         return pre;
     }
+
     // 链表相减
     public ListNode subtract(ListNode num1, ListNode num2) {
         int len1 = getLength(num1);
