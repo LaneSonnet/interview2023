@@ -1,5 +1,8 @@
 package com.lane.interview.algorithm_workbook.p18_leetcode高频题;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @ Author:  duenpu
  * @ Date  :  20:49 2024/3/12
@@ -72,5 +75,69 @@ public class Q18_整数反转_回文数_字符串转数字 {
         }
         return res;
     }
+    // 分割回文串
+    // https://leetcode-cn.com/problems/palindrome-partitioning/
+    public List<List<String>> partition(String s) {
+        List<List<String>> res = new ArrayList<>();
+        List<String> path = new ArrayList<>();
+        dfs(s, 0, path, res);
+        return res;
+    }
+    public void dfs(String s, int start, List<String> path, List<List<String>> res) {
+        if (start == s.length()) {
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = start; i < s.length(); i++) {
+            if (isPalindrome(s, start, i)) {
+                path.add(s.substring(start, i + 1));
+                dfs(s, i + 1, path, res);
+                path.remove(path.size() - 1);
+            }
+        }
+    }
+    public boolean isPalindrome(String s, int left, int right) {
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -6,6 +6,41 @@ import java.util.TreeMap;
 
 public class HashMapAndSortedMap {
 
+
+	//  private int get(int[] nums){
+	//
+	//        final Integer ZERO = 0 ;
+	//       //判空
+	//       if(nums == null || nums.length == 0){
+	//           return ZERO;
+	//       }
+	//
+	//
+	//       int length = nums.length;
+	//       int[] cur = new int[length+1];
+	//       int ans = 0;
+	//
+	//       // 1 第一次遍历
+	//       for(int i = 0;i < length;i++){
+	//           cur[i+1] = cur[i] ^ nums[i];
+	//       }
+	//
+	//      // 2 三重遍历
+	//       for(int l = 0;l < length;l++){
+	//           for(int j = i+1;j < n;j++){
+	//               for(int k = j;k < n;k++){
+	//                   if(cur[l] = cur[k+1]){
+	//                       ++ans;
+	//                   }
+	//               }
+	//           }
+	//       }
+	//
+	//       // 返回结果
+	//       return ans;
+	//
+	//   }
+
 	public static class Node {
 		public int value;
 
