@@ -121,22 +121,17 @@ public class Q13_和为K的子数组 {
             build(k, n, 1, 0);
             return ans;
         }
-
         private void build(int k, int n, int startIndex, int sum) {
-
             if (sum > n) {
                 return;
             }
-
             if (path.size() > k) {
                 return;
             }
-
             if (sum == n && path.size() == k) {
                 ans.add(new ArrayList<>(path));
                 return;
             }
-
             for(int i = startIndex; i <= 9; i++) {
                 path.add(i);
                 sum += i;
