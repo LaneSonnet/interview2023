@@ -3,6 +3,7 @@ package com.lane.interview.algorithm_workbook.p17_系统设计题;
 import java.util.LinkedHashMap;
 
 /**
+ *
  * @ Author:  duenpu
  * @ Date  :  22:41 2024/2/18
  */
@@ -10,10 +11,9 @@ public class Q01_手写LRU {
     class LRUCache {
         int cap;
         LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<>();
-    public LRUCache(int capacity) {
-            this.cap = capacity;
+        public LRUCache(int capacity) {
+           this.cap = capacity;
         }
-
         public int get(int key) {
             if (!cache.containsKey(key)) {
                 return -1;
@@ -22,7 +22,6 @@ public class Q01_手写LRU {
             makeRecently(key);
             return cache.get(key);
         }
-
         public void put(int key, int val) {
             if (cache.containsKey(key)) {
                 // 修改 key 的值
@@ -40,7 +39,6 @@ public class Q01_手写LRU {
             // 将新的 key 添加链表尾部
             cache.put(key, val);
         }
-
         private void makeRecently(int key) {
             int val = cache.get(key);
             // 删除 key，重新插入到队尾
