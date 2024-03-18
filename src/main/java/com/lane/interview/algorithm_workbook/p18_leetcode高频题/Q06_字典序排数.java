@@ -37,6 +37,23 @@ public class Q06_字典序排数 {
         }
     }
 
+    // public List<Integer> lexicalOrder(int n) {
+    //     List<Integer> list = new ArrayList<>();
+    //     int curr = 1;
+    //     //10叉树的先序遍历
+    //     for(int i=0;i<n;i++){
+    //         list.add(curr);
+    //         if(curr*10<=n){
+    //             curr*=10;//进入下一层
+    //         }else{
+    //             if(curr>=n)   curr/=10;//如果这一层结束了
+    //             curr+=1;
+    //             while(curr%10==0) curr/=10;//如果>10就要返回上一层
+    //         }
+    //     }
+    //     return list;
+    // }
+
     public static void main(String[] args) {
         System.out.println(lexicalOrder(13));
     }
