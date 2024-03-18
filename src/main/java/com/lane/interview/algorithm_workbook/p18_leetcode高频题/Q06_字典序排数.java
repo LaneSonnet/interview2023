@@ -55,7 +55,7 @@ public class Q06_字典序排数 {
     // }
 
     public static void main(String[] args) {
-        System.out.println(lexicalOrder(13));
+        System.out.println(lexicalOrder(178));
     }
 
 }
