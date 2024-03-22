@@ -78,7 +78,7 @@ public class Q11_转换 {
         pre = root;
     }
 
-    // 二叉树转双向有序链表
+    // 二叉搜索树转双向有序链表
     // https://leetcode-cn.com/problems/convert-binary-search-tree-to-sorted-doubly-linked-list/
     class Solution {
         TreeNode pre, head;
