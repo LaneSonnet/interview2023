@@ -6,7 +6,7 @@ import com.lane.interview.algorithm_workbook.p10_tree.TreeNode;
  * @ Author:  duenpu
  * @ Date  :  20:48 2024/2/9
  */
-public class Q01_判断是不是各种树 {
+public class Q01_判断是不是各种树_完全_搜索_平衡_满 {
     // 是否是完全二叉树
     public static boolean isCBT(TreeNode head) {
         if (head == null) {

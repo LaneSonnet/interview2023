@@ -7,7 +7,7 @@ import java.util.List;
  * @ Author:  duenpu
  * @ Date  :  23:19 2024/3/2
  */
-public class Q10_回文子串数量 {
+public class Q10_回文子串数量_所有回文子串 {
     // https://leetcode.cn/problems/palindromic-substrings/
     class Solution {
         public int countSubstrings(String s) {

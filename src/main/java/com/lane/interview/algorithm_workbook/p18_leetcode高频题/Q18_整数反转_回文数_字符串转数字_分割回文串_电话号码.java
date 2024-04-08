@@ -7,7 +7,7 @@ import java.util.List;
  * @ Author:  duenpu
  * @ Date  :  20:49 2024/3/12
  */
-public class Q18_整数反转_回文数_字符串转数字 {
+public class Q18_整数反转_回文数_字符串转数字_分割回文串_电话号码 {
     // 整数反转
     // https://leetcode-cn.com/problems/reverse-integer/
     public int reverse(int x) {

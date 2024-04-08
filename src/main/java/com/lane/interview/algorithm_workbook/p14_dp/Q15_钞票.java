@@ -8,6 +8,7 @@ public class Q15_钞票 {
 
     // https://leetcode.cn/problems/target-sum/description/
     // 目标和(返回方法总数)
+    // 可加可减
     class Solution1 {
         public int findTargetSumWays(int[] nums, int target) {
             int sum = 0;

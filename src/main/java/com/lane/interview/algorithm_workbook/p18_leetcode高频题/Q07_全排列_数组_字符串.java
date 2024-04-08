@@ -8,7 +8,7 @@ import java.util.List;
  * @ Author:  duenpu
  * @ Date  :  23:45 2024/3/2
  */
-public class Q07_全排列 {
+public class Q07_全排列_数组_字符串 {
     // 数组全排列
     // https://leetcode.cn/problems/permutations/
     class Solution {

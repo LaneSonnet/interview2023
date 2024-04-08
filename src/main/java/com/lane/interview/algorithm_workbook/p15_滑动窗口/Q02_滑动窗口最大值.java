@@ -51,6 +51,7 @@ public class Q02_滑动窗口最大值 {
         public int[] maxSlidingWindow(int[] nums, int k) {
             int n = nums.length;
             PriorityQueue<int[]> pq = new PriorityQueue<int[]>(new Comparator<int[]>() {
+                @Override
                 public int compare(int[] pair1, int[] pair2) {
                     return pair1[0] != pair2[0] ? pair2[0] - pair1[0] : pair2[1] - pair1[1];
                 }
